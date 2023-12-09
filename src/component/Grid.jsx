@@ -37,7 +37,7 @@ function Grid({ viewMore, data, limit = 0, filters }) {
                   <div className="lg:w-1/3 md:w-1/2 p-12 px-12 w-full">
                     <Link
                       className="inline-block w-full"
-                      to={`product/${item.id}`}
+                      to={`/product/${item.id}`}
                     >
                       <ProductCard data={item} key={i} />
                     </Link>
@@ -66,13 +66,13 @@ function ProductCard({ data }) {
   return (
     <>
       <div className=" border-2 rounded-md p-4 border-slate-200">
-        <a className="block relative aspect-square rounded overflow-hidden">
+        <Link className="block relative aspect-square rounded overflow-hidden">
           <img
             alt="ecommerce"
             className="object-cover object-center w-full h-full block"
             src={data.images[0]}
           />
-        </a>
+        </Link>
         <div className="mt-8">
           <h2 className="text-gray-900 title-font text-lg font-medium">
             {data.name}

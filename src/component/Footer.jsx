@@ -16,7 +16,7 @@ function Footer() {
             >
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
             </svg>
-            <span className="ml-3 text-xl">Tailblocks</span>
+            <span className="ml-3 text-xl">CHEFGUARD</span>
           </a>
           <p className="mt-2 w-64 text-sm text-white">
             As we are aiming at a complete modern kitchen solution, visualising
