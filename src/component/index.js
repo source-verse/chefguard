@@ -1,0 +1,10 @@
+export { default as Header } from "./Header";
+export { default as Footer } from "./Footer";
+export { default as Feature } from "./Feature";
+export { default as FeatureTwo } from "./FeatureTwo";
+export { default as Grid } from "./Grid";
+export { default as Contact } from "./Contact";
+export { default as Hero } from "./Hero";
+export { default as Timeline } from "./Timeline";
+export { default as Services } from "./Services";
+export { default as ProductComponent } from "./ProductComponent";
