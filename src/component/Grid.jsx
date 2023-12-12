@@ -10,7 +10,7 @@ function Grid({ viewMore, data, limit = 0, filters }) {
     <>
       <section className="text-gray-600 body-font">
         <div
-          className={`container px-5 py-8 mx-auto relative ${
+          className={`container px-10 py-8 mx-auto relative ${
             filters && "flex"
           }`}
         >

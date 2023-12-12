@@ -25,16 +25,20 @@ const responsive = {
 
 function Hero() {
   const [banners, setBanners] = useState([]);
+  const [desc, setDesc] = useState([]);
 
   const fetchBanner = async () => {
     const db = getFirestore(app);
     const banners = await getDocs(collection(db, "banners"));
-    return banners.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    return banners.docs
+      .filter((doc) => doc.data().type == "main")
+      .map((doc) => ({ id: doc.id, ...doc.data() }));
   };
 
   useEffect(() => {
     fetchBanner().then((data) => {
       setBanners(data);
+      console.log(banners);
     });
   }, []);
 
@@ -48,13 +52,13 @@ function Hero() {
         autoPlay={true}
         autoPlaySpeed={5000}
         responsive={responsive}
-        itemClass={"h-[90vh]"}
+        itemClass={"h-[70vh] lg:h-[90vh]"}
       >
         {banners.map((banner) => (
           <img
-            className="object-fit w-full h-full"
+            className="object-cover w-full h-full"
             key={banner.id}
-            src={banner.url}
+            src={banner.image}
             alt="banner"
           />
         ))}

@@ -1,14 +1,38 @@
+import React, { useState } from "react";
+import useEmail from "../hooks/useEmail";
+
 function Contact() {
+  const [from_name, setFromName] = useState("");
+  const [message, setMessage] = useState("");
+  const [to_email, setTo_Email] = useState("");
+  const [subject, setSubject] = useState("");
+
+  const { sendEmail, emailSent, error } = useEmail();
+
+  const handleSendEmail = () => {
+    const templateParams = {
+      from_name,
+      to_email,
+      subject,
+      message,
+    };
+
+    sendEmail(templateParams);
+  };
+
   return (
     <section className="text-gray-600 body-font relative">
-      <h1 className="sm:text-3xl lg:text-5xl capitalize font-medium title-font text-center text-primary">
+      <h1 className="text-3xl lg:text-5xl capitalize font-medium title-font text-center text-primary">
         Contact Us
       </h1>
-      <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap sm:flex-col lg:flex-row flex-wrap">
-        <div className="lg:w-1/2 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-          <div></div>
+      <div className="container px-10 py-24 mx-auto flex sm:flex-nowrap sm:flex-col lg:flex-row flex-wrap">
+        <div className="lg:w-1/2 md:w-1/2 rounded-lg overflow-hidden sm:mr-10 flex items-end justify-start relative">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/chefguard-5ca00.appspot.com/o/images%2Fasset.png?alt=media&token=e73e7343-77d0-4262-a1ad-0be7dd3f69c3"
+            alt="assets"
+          />
         </div>
-        <div className="lg:w-1/2 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+        <div className="lg:w-1/2 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:mt-0">
           <div className="relative mb-4">
             <label htmlFor="name" className="leading-7 text-sm text-gray-600">
               Name
@@ -17,6 +41,9 @@ function Contact() {
               type="text"
               id="name"
               name="name"
+              placeholder="Recipient Name"
+              value={from_name}
+              onChange={(e) => setFromName(e.target.value)}
               className="w-full bg-white rounded border border-gray-300 focus:border-[#125C21] focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
@@ -29,6 +56,9 @@ function Contact() {
               id="email"
               name="email"
               className="w-full bg-white rounded border border-gray-300 focus:border-[#125C21] focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              placeholder="Recipient Email"
+              value={to_email}
+              onChange={(e) => setTo_Email(e.target.value)}
             />
           </div>
           <div className="relative mb-4">
@@ -40,6 +70,9 @@ function Contact() {
               id="name"
               name="name"
               className="w-full bg-white rounded border border-gray-300 focus:border-[#125C21] focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              placeholder="Subject"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
             />
           </div>
           <div className="relative mb-4">
@@ -53,15 +86,19 @@ function Contact() {
               id="message"
               name="message"
               className="w-full bg-white rounded border border-gray-300 focus:border-[#125C21] focus:ring-2 focus:ring-green-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+              placeholder="Message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </div>
-          <button className="text-white bg-[#125C21] border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">
-            Button
+          <button
+            onClick={handleSendEmail}
+            className="text-white bg-[#125C21] border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg"
+          >
+            Submit
           </button>
-          <p className="text-xs text-gray-500 mt-3">
-            Chicharrones blog helvetica normcore iceland tousled brook viral
-            artisan.
-          </p>
+          {emailSent && <p>Email sent successfully!</p>}
+          {error && <p>Error sending email: {error.message}</p>}
         </div>
       </div>
     </section>

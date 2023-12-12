@@ -1,9 +1,9 @@
 function FeatureTwo() {
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-5 pb-24 mx-auto">
+      <div className="container px-10 pb-24 mx-auto">
         <h1 className="text-3xl lg:text-5xl font-medium title-font text-center text-primary mb-20">
-          Lorem Ipsum
+          Testimonials
         </h1>
         <div className="flex flex-wrap -m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6 max-w-3/4 lg:flex-row flex-col items-center gap-10 lg:gap-0 ">
           <div className="lg:w-1/3 flex relative p-16 h-52 w-52">

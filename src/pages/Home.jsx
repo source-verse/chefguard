@@ -21,12 +21,12 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 5,
+    items: 4,
     slidesToSlide: 1, // optional, default to 1.
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 5,
+    items: 3,
     slidesToSlide: 1, // optional, default to 1.
   },
 };
@@ -53,8 +53,13 @@ const fetchProductsAndCategories = async () => {
   const db = getFirestore(app);
   const prod = await getDocs(collection(db, "products"));
   const cat = await getDocs(collection(db, "categories"));
+  const banners = await getDocs(collection(db, "banners"));
   const productList = prod.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   const categoryList = cat.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  const bannerList = banners.docs
+    .filter((doc) => doc.data().type == "main")
+    .map((doc) => ({ id: doc.id, ...doc.data() }));
+
   let products = [];
 
   for (const prodData of productList) {
@@ -71,17 +76,19 @@ const fetchProductsAndCategories = async () => {
       }
     }
   }
-  return { products, categoryList };
+  return { products, categoryList, bannerList };
 };
 
 function Home() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  const [banners, setBanners] = useState([]);
 
   useEffect(() => {
     fetchProductsAndCategories().then((data) => {
       setCategories(data.categoryList);
       setProducts(data.products);
+      setBanners(data.bannerList);
     });
   }, []);
 
@@ -93,8 +100,8 @@ function Home() {
     products && (
       <>
         <Hero />
-        <div className="container px-5 pb-24 mx-auto">
-          <div className="mt-9 px-28">
+        <div className="container px-10 pb-24 mx-auto">
+          <div className="mt-9 lg:px-28 categories_arrows">
             <Carousel
               swipeable={true}
               draggable={true}
@@ -119,7 +126,7 @@ function Home() {
           </div>
         </div>
         <div className="pb-24">
-          <h1 className="sm:text-3xl lg:text-5xl capitalize font-medium title-font text-center text-primary">
+          <h1 className="text-3xl lg:text-5xl capitalize font-medium title-font text-center text-primary">
             Products
           </h1>
           <Grid data={products} viewMore limit={6} />
@@ -137,12 +144,14 @@ function Home() {
         <Feature
           text={ourVisionText}
           headline={"Our Vision"}
-          img={""}
-          textClass={`font-semibold text-gray-500 text-4xl tracking-widest`}
+          img={
+            "https://firebasestorage.googleapis.com/v0/b/chefguard-5ca00.appspot.com/o/images%2Fvision.png?alt=media&token=bdd48b7c-5f28-427a-abc8-0942ba8119e2"
+          }
+          textClass={`font-semibold text-gray-500 sm:text-xl lg:text-2xl rounded tracking-widest`}
         />
         <FeatureTwo />
-        <div className="container px-5 py-24 mx-auto">
-          <div className="mt-9 px-28">
+        <div className="container px-5 lg:px-10 py-24 mx-auto">
+          <div className="mt-9 lg:px-28">
             <Carousel
               swipeable={true}
               draggable={false}
@@ -151,10 +160,15 @@ function Home() {
               autoPlay={true}
               autoPlaySpeed={5000}
               responsive={responsiveBanner}
-              itemClass={"h-[90vh]"}
+              itemClass={"h-[70h] lg:h-[90vh]"}
             >
-              {[1, 2, 3, 4, 5].map((item, i) => (
-                <div key={i}>{item}</div>
+              {banners.map((item, i) => (
+                <img
+                  className="object-fit w-full h-full"
+                  key={item.id}
+                  src={item.image}
+                  alt="banner"
+                />
               ))}
             </Carousel>
           </div>

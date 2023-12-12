@@ -4,7 +4,7 @@ function Timeline() {
       <h1 className="text-3xl lg:text-5xl font-medium title-font text-center text-primary">
         Achievements
       </h1>
-      <div className="container px-5 py-8 mx-auto flex flex-wrap">
+      <div className="container px-10 py-8 mx-auto flex flex-wrap">
         <div className="flex flex-wrap justify-center w-full">
           <div className="md:pr-10 md:py-6">
             <div className="grid lg:grid-cols-[1fr_2.5rem_1fr] grid-cols-[2.5rem_1fr] gap-10 relative">
@@ -21,26 +21,26 @@ function Timeline() {
                 <h2 className="font-medium title-font text-lg text-primary mb-1 tracking-wider">
                   2013
                 </h2>
-                <p className="font-bold text-emerald-600">
+                {/* <p className="font-bold text-emerald-600">
                   Recieved Sree Chithirathirunnal Award
-                </p>
+                </p> */}
                 <p className="leading-relaxed font-semibold text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adip elit. Donec
-                  posuere dolor massa, pellentesque aliquam nisl facilisis sed.
+                  Received Sree Chithirarhirunnl Award from the then Union
+                  Minister Of Industries, Mr. Kodikkunnil Suresh, Kerala.
                 </p>
               </div>
             </div>
             <div className="grid lg:grid-cols-[1fr_2.5rem_1fr] grid-cols-[2.5rem_1fr] gap-10 relative">
               <div className="flex-grow pl-4 shadow-lg rounded-xl px-8 py-4 m-4 hidden lg:block">
                 <h2 className="font-medium title-font text-lg text-primary mb-1 tracking-wider">
-                  2013
+                  2014
                 </h2>
-                <p className="font-bold text-emerald-600">
-                  Recieved Sree Chithirathirunnal Award
-                </p>
+                {/* <p className="font-bold text-emerald-600">
+                  Received Subsash Chandra Bose Award
+                </p> */}
                 <p className="leading-relaxed font-semibold text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adip elit. Donec
-                  posuere dolor massa, pellentesque aliquam nisl facilisis sed.
+                  Received Subsash Chandra Bose Award from the then Minister of
+                  Education, Mr. Adbu Rabb, Kerala.
                 </p>
               </div>
               <div className="relative">
@@ -53,14 +53,14 @@ function Timeline() {
               </div>
               <div className="flex-grow pl-4 shadow-lg rounded-xl px-8 py-4 m-4 lg:hidden">
                 <h2 className="font-medium title-font text-lg text-primary mb-1 tracking-wider">
-                  2013
+                  2014
                 </h2>
-                <p className="font-bold text-emerald-600">
-                  Recieved Sree Chithirathirunnal Award
-                </p>
+                {/* <p className="font-bold text-emerald-600">
+                  Received Subsash Chandra Bose Award
+                </p> */}
                 <p className="leading-relaxed font-semibold text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adip elit. Donec
-                  posuere dolor massa, pellentesque aliquam nisl facilisis sed.
+                  Received Subsash Chandra Bose Award from the then Minister of
+                  Education, Mr. Adbu Rabb, Kerala
                 </p>
               </div>
             </div>
@@ -76,28 +76,28 @@ function Timeline() {
               </div>
               <div className="flex-grow pl-4 shadow-lg rounded-xl px-8 py-4 m-4">
                 <h2 className="font-medium title-font text-lg text-primary mb-1 tracking-wider">
-                  2013
+                  2015
                 </h2>
-                <p className="font-bold text-emerald-600">
+                {/* <p className="font-bold text-emerald-600">
                   Recieved Sree Chithirathirunnal Award
-                </p>
+                </p> */}
                 <p className="leading-relaxed font-semibold text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adip elit. Donec
-                  posuere dolor massa, pellentesque aliquam nisl facilisis sed.
+                  Recieved Thilakan Smaraka Award from the then Minister of
+                  Health, Mr. V.S Shiva Kumar, Kerala.
                 </p>
               </div>
             </div>
             <div className="grid lg:grid-cols-[1fr_2.5rem_1fr] grid-cols-[2.5rem_1fr] gap-10 relative">
               <div className="flex-grow pl-4 shadow-lg rounded-xl px-8 py-4 m-4 hidden lg:block">
                 <h2 className="font-medium title-font text-lg text-primary mb-1 tracking-wider">
-                  2013
+                  2015-16
                 </h2>
-                <p className="font-bold text-emerald-600">
-                  Recieved Sree Chithirathirunnal Award
-                </p>
+                {/* <p className="font-bold text-emerald-600">
+                  Recieved Thilakan Smaraka Award
+                </p> */}
                 <p className="leading-relaxed font-semibold text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adip elit. Donec
-                  posuere dolor massa, pellentesque aliquam nisl facilisis sed.
+                  Become a member among the 500 main industrialist, Survey By
+                  Dhanam Magazine.
                 </p>
               </div>
               <div className="relative">
@@ -110,14 +110,14 @@ function Timeline() {
               </div>
               <div className="flex-grow pl-4 shadow-lg rounded-xl px-8 py-4 m-4 lg:hidden">
                 <h2 className="font-medium title-font text-lg text-primary mb-1 tracking-wider">
-                  2013
+                  2015-16
                 </h2>
-                <p className="font-bold text-emerald-600">
-                  Recieved Sree Chithirathirunnal Award
-                </p>
+                {/* <p className="font-bold text-emerald-600">
+                  Recieved Thilakan Smaraka Award
+                </p> */}
                 <p className="leading-relaxed font-semibold text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adip elit. Donec
-                  posuere dolor massa, pellentesque aliquam nisl facilisis sed.
+                  Become a member among the 500 main industrialist, Survey By
+                  Dhanam Magazine.
                 </p>
               </div>
             </div>
@@ -130,14 +130,15 @@ function Timeline() {
               </div>
               <div className="flex-grow pl-4 shadow-lg rounded-xl px-8 py-4 m-4">
                 <h2 className="font-medium title-font text-lg text-primary mb-1 tracking-wider">
-                  2013
+                  2016
                 </h2>
-                <p className="font-bold text-emerald-600">
-                  Recieved Sree Chithirathirunnal Award
-                </p>
+                {/* <p className="font-bold text-emerald-600">
+                  About 350 ladies are working here.
+                </p> */}
                 <p className="leading-relaxed font-semibold text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adip elit. Donec
-                  posuere dolor massa, pellentesque aliquam nisl facilisis sed.
+                  About 350 ladies are working here. If the employees has enough
+                  potential to move in the industry. She will be the promoted to
+                  the manageral level.
                 </p>
               </div>
             </div>

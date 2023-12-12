@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer className="text-white body-font bg-primary ">
-      <div className="container px-5 py-24 mx-auto flex md:items-center gap-6 lg:gap-0 lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+      <div className="container px-10 py-24 mx-auto flex md:items-center gap-6 lg:gap-0 lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="lg:w-1/3 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
             <svg
@@ -11,7 +11,7 @@ function Footer() {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              className="w-10 h-10 text-white p-2 bg-[#125C21] rounded-full"
+              className="w-10 h-10 text-white p-2 bg-primary rounded-full"
               viewBox="0 0 24 24"
             >
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
@@ -184,11 +184,11 @@ function Footer() {
         </div>
       </div>
       <div className="bg-primary ">
-        <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col flex-row">
-          <p className="text-white text-sm text-center text-left">
+        <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col lg:flex-row">
+          <p className="text-white text-sm text-center lg:text-left">
             Copyright © 2023. india. All rights reserved
           </p>
-          <span className="inline-flex ml-auto mt-0 mt-2 justify-center justify-start">
+          <span className="inline-flex mx-auto lg:ml-auto mt-0 mt-2 justify-center lg:justify-start">
             <a className="text-white">
               <svg
                 fill="currentColor"

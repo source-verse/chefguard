@@ -4,7 +4,7 @@ function Services() {
       <h1 className="text-3xl lg:text-5xl capitalize font-medium title-font text-center text-primary">
         What We Provide
       </h1>
-      <div className="container px-5 mx-auto flex flex-wrap">
+      <div className="container px-10 mx-auto flex flex-wrap">
         <div className="flex flex-col lg:flex-row w-full items-center">
           <img
             className="lg:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12"
