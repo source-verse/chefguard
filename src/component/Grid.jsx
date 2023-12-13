@@ -15,7 +15,7 @@ function Grid({ viewMore, data, limit = 0, filters }) {
           }`}
         >
           {filters && (
-            <div className="w-1/4">
+            <div className="w-0 lg:w-1/4 hidden lg:block">
               <h2 className="text-3xl font-semibold">
                 Smart Cooking Accessories
               </h2>
@@ -30,7 +30,9 @@ function Grid({ viewMore, data, limit = 0, filters }) {
               />
             </div>
           )}
-          <div className={`${filters && "w-3/4"} flex flex-wrap -m-4`}>
+          <div
+            className={`${filters && "w-full lg:w-3/4"} flex flex-wrap -m-4`}
+          >
             {data
               .map((item, i) => (
                 <>
