@@ -15,12 +15,12 @@ const firebaseConfig = {
   // projectId: process.env.projectId,
   // storageBucket: process.env.storageBucket,
   // messagingSenderId: process.env.messagingSenderId,
-  apiKey: "AIzaSyDuG2QmGx13EPJx0lrwzrYyaoKz6f-k7fE",
-  authDomain: "chefguard-5ca00.firebaseapp.com",
-  projectId: "chefguard-5ca00",
-  storageBucket: "chefguard-5ca00.appspot.com",
-  messagingSenderId: "1004208385751",
-  appId: "1:1004208385751:web:3a25c14f509989e0c7ca92",
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
 };
 
 // Initialize Firebase

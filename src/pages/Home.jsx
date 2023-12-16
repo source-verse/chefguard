@@ -50,10 +50,16 @@ const responsiveBanner = {
 };
 
 const fetchProductsAndCategories = async () => {
+  console.log("fetch proddddddd")
   const db = getFirestore(app);
   const prod = await getDocs(collection(db, "products"));
   const cat = await getDocs(collection(db, "categories"));
   const banners = await getDocs(collection(db, "banners"));
+  const testimonialList = await getDocs(collection(db, "testimonials"));
+  const testimonial = testimonialList.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
   const productList = prod.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   const categoryList = cat.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   const bannerList = banners.docs
@@ -76,19 +82,24 @@ const fetchProductsAndCategories = async () => {
       }
     }
   }
-  return { products, categoryList, bannerList };
+  return { products, categoryList, bannerList, testimonial };
 };
 
 function Home() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [banners, setBanners] = useState([]);
-
+  const [testimonial, setTestimonial] = useState([]);
+console.log("entered")
   useEffect(() => {
+    console.log("enttered use");
     fetchProductsAndCategories().then((data) => {
+      console.log("enttered then");
+      console.log({ data });
       setCategories(data.categoryList);
       setProducts(data.products);
       setBanners(data.bannerList);
+      setTestimonial(data.testimonial);
     });
   }, []);
 
@@ -149,7 +160,7 @@ function Home() {
           }
           textClass={`font-semibold text-gray-500 sm:text-xl lg:text-2xl rounded tracking-widest`}
         />
-        <FeatureTwo />
+        <FeatureTwo/>
         <div className="container px-5 lg:px-10 py-24 mx-auto">
           <div className="mt-9 lg:px-28">
             <Carousel

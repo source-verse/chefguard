@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer className="text-white body-font bg-primary ">
-      <div className="container px-10 py-24 mx-auto flex md:items-center gap-6 lg:gap-0 lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+      <div className="container lg:px-10 py-12 lg:py-24 mx-auto flex md:items-center gap-6 lg:gap-0 lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="lg:w-1/3 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
             <svg
@@ -170,7 +170,7 @@ function Footer() {
           <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3">
             Newsletter
           </h2>
-          <div className="relative mb-4 flex gap-4">
+          <div className="relative mb-4 flex flex-col lg:flex-row gap-4">
             <input
               type="text"
               id="name"

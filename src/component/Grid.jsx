@@ -10,12 +10,12 @@ function Grid({ viewMore, data, limit = 0, filters }) {
     <>
       <section className="text-gray-600 body-font">
         <div
-          className={`container px-10 py-8 mx-auto relative ${
-            filters && "flex"
+          className={`container px-10 py-8 mx-auto relative flex flex-col lg:flex-row gap-8 ${
+            filters && "flex-col lg:flex-row gap-8"
           }`}
         >
           {filters && (
-            <div className="w-0 lg:w-1/4 hidden lg:block">
+            <div className="w-full lg:w-1/4 lg:block">
               <h2 className="text-3xl font-semibold">
                 Smart Cooking Accessories
               </h2>
@@ -30,13 +30,11 @@ function Grid({ viewMore, data, limit = 0, filters }) {
               />
             </div>
           )}
-          <div
-            className={`${filters && "w-full lg:w-3/4"} flex flex-wrap -m-4`}
-          >
+          <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8`}>
             {data
               .map((item, i) => (
                 <>
-                  <div className="lg:w-1/3 md:w-1/2 p-12 px-12 w-full">
+                  <div className="">
                     <Link
                       className="inline-block w-full"
                       to={`/product/${item.id}`}
@@ -51,7 +49,7 @@ function Grid({ viewMore, data, limit = 0, filters }) {
           {viewMore && (
             <Link
               to={`/product`}
-              className="text-primary font-bold absolute right-0 mr-14"
+              className="text-primary font-bold absolute right-0 bottom-0 mr-14"
             >
               View More &gt;
             </Link>
@@ -67,7 +65,7 @@ export default Grid;
 function ProductCard({ data }) {
   return (
     <>
-      <div className=" border-2 rounded-md p-4 border-slate-200">
+      <div className=" border-2 rounded-md p-3 lg:p-4 border-slate-200">
         <Link className="block relative aspect-square rounded overflow-hidden">
           <img
             alt="ecommerce"
@@ -76,7 +74,7 @@ function ProductCard({ data }) {
           />
         </Link>
         <div className="mt-8">
-          <h2 className="text-gray-900 title-font text-lg font-medium">
+          <h2 className="text-gray-900 title-font text-md lg:text-lg font-medium">
             {data.name}
           </h2>
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
@@ -84,13 +82,13 @@ function ProductCard({ data }) {
           </h3>
           {data.stock && (
             <>
-              <span className="mt-1 text-black mr-4 font-bold">
+              <span className="mt-1 text-black mr-4 font-bold text-sm lg:text-lg">
                 &#8377;{data.price - (data.price * data.offer) / 100}
               </span>
-              <span className="mt-1 text-gray-500 mr-4 line-through font-bold">
+              <span className="mt-1 text-gray-500 mr-4 line-through font-bold block lg:inline-block text-sm lg:text-lg">
                 &#8377;{data.price}
               </span>
-              <span className="mt-1 text-primary mr-4 font-semibold">
+              <span className="mt-1 text-primary mr-4 font-semibold inline-block text-sm lg:text-lg">
                 {data.offer}% off
               </span>
             </>
