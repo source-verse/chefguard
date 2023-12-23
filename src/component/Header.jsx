@@ -17,22 +17,21 @@ function Header() {
     <header className="text-gray-600 body-font">
       <div className="container mx-auto flex flex-wrap px-5 py-0 gap-10 md:flex-row items-center relative">
         <Link
-          className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+          className="flex title-font font-medium items-center text-gray-900 lg:mb-4 md:mb-0"
           to={`/`}
         >
           <img
-            className="w-16 scale-125"
+            className="w-14 md:w-16 scale-125"
             src="https://firebasestorage.googleapis.com/v0/b/chefguard-5ca00.appspot.com/o/images%2Fphoto_2023-11-05_22-00-02-removebg-preview.png?alt=media&token=34926ae0-1bc0-47a5-bd2d-7c4eb314ef53"
           />
         </Link>
         <button className="ml-auto lg:hidden" onClick={toggleVariable}>
           <svg
             version="1.1"
-            width="32"
-            height="32"
             x="0"
             y="0"
             viewBox="0 0 32 32"
+            className="w-6 md:w-8"
           >
             <g>
               <path

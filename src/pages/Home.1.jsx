@@ -8,89 +8,15 @@ import {
   Services,
 } from "../component/index";
 import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import { useState, useEffect } from "react";
-import { app } from "../firebase";
 import { MutatingDots } from "react-loader-spinner";
-import { getDocs, getFirestore, collection } from "firebase/firestore";
+import {
+  fetchProductsAndCategories,
+  responsive,
+  responsiveBanner,
+} from "./Home";
 
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 6,
-    slidesToSlide: 1, // optional, default to 1.
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 4,
-    slidesToSlide: 1, // optional, default to 1.
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 3,
-    slidesToSlide: 1, // optional, default to 1.
-  },
-};
-const responsiveBanner = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 1,
-    default: 1,
-    slidesToSlide: 1, // optional, default to 1.
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1,
-    slidesToSlide: 1, // optional, default to 1.
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-    slidesToSlide: 1, // optional, default to 1.
-  },
-};
-
-const fetchProductsAndCategories = async () => {
-  const db = getFirestore(app);
-  const prod = await getDocs(collection(db, "products"));
-  const cat = await getDocs(collection(db, "categories"));
-  const banners = await getDocs(collection(db, "banners"));
-  const testimonialList = await getDocs(collection(db, "testimonials"));
-  const testimonial = testimonialList.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
-  const productList = prod.docs
-    .filter((doc) => doc.data().status == "active")
-    .map((doc) => ({ id: doc.id, ...doc.data() }));
-  const categoryList = cat.docs
-    .filter((doc) => doc.data().status == "active")
-    .map((doc) => ({ id: doc.id, ...doc.data() }));
-  const bannerList = banners.docs
-    .filter((doc) => doc.data().type == "sub")
-    .filter((doc) => doc.data().status == "active")
-    .map((doc) => ({ id: doc.id, ...doc.data() }));
-
-  let products = [];
-
-  for (const prodData of productList) {
-    // console.log({prodData})
-    if (prodData.categoryId) {
-      const categoryId = prodData.categoryId;
-      const catData = categoryList.find(
-        (cat) => cat.id && cat.id.toString() === categoryId.toString()
-      );
-      if (catData) {
-        products.push({ ...prodData, categoryName: catData.name });
-      } else {
-        products.push({ ...prodData, categoryName: "" });
-      }
-    }
-  }
-  return { products, categoryList, bannerList, testimonial };
-};
-
-function Home() {   
+export function Home() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [banners, setBanners] = useState([]);
@@ -109,7 +35,6 @@ function Home() {
     "Chefguard, founded by Mrs. Smitha in Malapuram district, Kerala, has become a leading supplier of domestic and commercial stoves in the state. Chefguard is highly regarded among gas burner, gas stove, and gas cylinder trolley dealers. The company offers online purchasing, maintenance booking, and complaint registration for customer convenience. Mrs. Smitha, the CEO, acknowledges the journey from a startup to a household name and remains committed to progress. The company empowers women and employs many homemakers who bring a unique perspective to household kitchen needs, resulting in satisfied customers. Chefguard not only serves domestic needs but also caters to commercial standards with satisfied customers in the hospitality industry.";
   const ourVisionText = `" Our largest vision is to protect every house from gas stove accidents. Even if it's anywhere around the world, we should be able to provide our services. So our group's main vision is to protect each and every life. Because Every Life Matters "`;
   return categories && products && banners ? (
-    // return imagesLoaded ? (
     <>
       <Hero />
       <div className="container px-10 lg:pb-24 mx-auto">
@@ -211,5 +136,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;

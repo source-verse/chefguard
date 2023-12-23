@@ -1,7 +1,7 @@
 function Feature({ reverse, text, headline, img, textClass }) {
   return (
     <section className="text-gray-600 body-font">
-      <h1 className="text-3xl lg:text-5xl capitalize font-medium title-font text-center text-primary">
+      <h1 className="text-3xl lg:text-5xl capitalize font-bold title-font text-center text-primary">
         {headline}
       </h1>
       <div
@@ -15,7 +15,7 @@ function Feature({ reverse, text, headline, img, textClass }) {
           </div>
         </div>
         <div
-          className={`lg:w-1/2 w-full mb-10 lg:mb-0 flex items-center justify-center rounded-lg overflow-hidden mt-12 lg:mt-0`}
+          className={`lg:w-1/2 w-full mb-10 lg:mb-0 flex items-center justify-center rounded-2xl overflow-hidden mt-12 lg:mt-0`}
         >
           <img
             alt="feature"

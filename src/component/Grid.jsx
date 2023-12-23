@@ -1,37 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const options = ["Price", "Release Date", "Category", "Discount"]; // Add more options as needed
 
 function Grid({ viewMore, data, limit = 0, filters }) {
-  const [sortValue, setSortValue] = useState("");
+  const [sortValue, setSortValue] = useState("Price");
+  const [sortArray, setSortArray] = useState([]);
 
+  useEffect(() => {
+    setSortArray(() => {
+      return [...data].sort(
+        (a, b) => a[sortValue.toLowerCase()] - b[sortValue.toLowerCase()]
+      );
+    });
+  }, [sortValue, data]);
   return (
     <>
       <section className="text-gray-600 body-font">
         <div
-          className={`container px-10 py-8 mx-auto relative flex flex-col lg:flex-row gap-8 ${
+          className={`container px-4 py-4 pb-10 lg:pb-14 mx-auto relative flex flex-col lg:flex-row gap-8 ${
             filters && "flex-col lg:flex-row gap-8"
           }`}
         >
           {filters && (
             <div className="w-full lg:w-1/4 lg:block">
-              <h2 className="text-3xl font-semibold">
-                Smart Cooking Accessories
-              </h2>
-              <p className="font-semibold mt-2">
-                Showing 1 - {data.length} out of {data.length} products
-              </p>
-              <div className="mt-4"></div>
-              <Dropdown
-                selectedValue={sortValue}
-                setSelectedValue={setSortValue}
-                options={options} // Add more options as needed
-              />
+              <div className="border-2 p-4 rounded-lg">
+                <h2 className="text-3xl font-semibold">
+                  Smart Cooking Accessories
+                </h2>
+                <p className="font-semibold mt-2">
+                  Showing 1 - {sortArray.length} out of {sortArray.length}{" "}
+                  products
+                </p>
+                <div className="mt-4"></div>
+                <Dropdown
+                  selectedValue={sortValue}
+                  setSelectedValue={setSortValue}
+                  options={options} // Add more options as needed
+                />
+              </div>
             </div>
           )}
-          <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8`}>
-            {data
+          <div
+            className={`grid grid-cols-2 lg:px-40 lg:grid-cols-3 gap-4 lg:gap-16`}
+          >
+            {sortArray
               .map((item, i) => (
                 <>
                   <div className="">
@@ -49,7 +62,7 @@ function Grid({ viewMore, data, limit = 0, filters }) {
           {viewMore && (
             <Link
               to={`/product`}
-              className="text-primary font-bold absolute right-0 bottom-0 mr-14"
+              className="text-primary font-bold absolute right-0 bottom-0 mr-4"
             >
               View More &gt;
             </Link>
@@ -65,7 +78,7 @@ export default Grid;
 function ProductCard({ data }) {
   return (
     <>
-      <div className=" border-2 rounded-md p-3 lg:p-4 border-slate-200">
+      <div className="border-2 rounded-md p-3 lg:p-4 border-slate-200">
         <Link className="block relative aspect-square rounded overflow-hidden">
           <img
             alt="ecommerce"
@@ -74,24 +87,37 @@ function ProductCard({ data }) {
           />
         </Link>
         <div className="mt-8">
-          <h2 className="text-gray-900 title-font text-md lg:text-lg font-medium">
+          <h2 className="text-gray-900 title-font text-md font-bold lg:text-lg">
             {data.name}
           </h2>
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
             {data.categoryName}
           </h3>
-          {data.stock && (
+          {data.stock ? (
             <>
-              <span className="mt-1 text-black mr-4 font-bold text-sm lg:text-lg">
-                &#8377;{data.price - (data.price * data.offer) / 100}
-              </span>
-              <span className="mt-1 text-gray-500 mr-4 line-through font-bold block lg:inline-block text-sm lg:text-lg">
-                &#8377;{data.price}
-              </span>
-              <span className="mt-1 text-primary mr-4 font-semibold inline-block text-sm lg:text-lg">
-                {data.offer}% off
-              </span>
+              {data.offer ? (
+                <>
+                  <span className="mt-1 text-gray-500 mr-2 lg:mr-4 line-through font-bold lg:inline-block text-sm lg:text-lg">
+                    &#8377;{Math.ceil(data.price)}
+                  </span>
+                  <span className="mt-1 text-black mr-2 lg:mr-4 font-bold text-sm lg:text-lg">
+                    &#8377;
+                    {Math.ceil(data.price - (data.price * data.offer) / 100)}
+                  </span>
+                  <span className="mt-1 text-primary mr-2 lg:mr-4 font-semibold text-sm hidden sm:inline-block lg:text-lg whitespace-nowrap ">
+                    {data.offer}% off
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span className="mt-1 text-black mr-2 lg:mr-4 font-bold text-sm lg:text-lg">
+                    &#8377;{Math.ceil(data.price)}
+                  </span>
+                </>
+              )}
             </>
+          ) : (
+            <p className="text-red-600 font-bold text-xs">Out Of Stock</p>
           )}
         </div>
       </div>
@@ -115,7 +141,7 @@ const Dropdown = ({ selectedValue, setSelectedValue, options }) => {
       >
         {" "}
         <span>
-          <span className="text-gray-500">Filter by: </span>
+          <span className="text-gray-500">Sort by: </span>
           {selectedValue}
         </span>
         <svg
@@ -134,7 +160,7 @@ const Dropdown = ({ selectedValue, setSelectedValue, options }) => {
       </button>
 
       {isOpen && (
-        <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-20">
           <div
             className="py-1"
             role="menu"

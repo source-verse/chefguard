@@ -18,7 +18,7 @@ function Footer() {
             </svg>
             <span className="ml-3 text-xl">CHEFGUARD</span>
           </a>
-          <p className="mt-2 w-64 text-sm text-white">
+          <p className="mt-2 w-64 text-sm text-white">/
             As we are aiming at a complete modern kitchen solution, visualising
             an accident free, safe and secure home by providing the finest and
             latest cooking tools. We are providing latest franchise

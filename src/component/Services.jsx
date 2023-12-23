@@ -1,7 +1,7 @@
 function Services() {
   return (
     <section className="text-gray-600 body-font pb-24">
-      <h1 className="text-3xl lg:text-5xl capitalize font-medium title-font text-center text-primary">
+      <h1 className="text-3xl lg:text-5xl capitalize font-bold title-font text-center text-primary">
         What We Provide
       </h1>
       <div className="container px-10 mx-auto flex flex-wrap">

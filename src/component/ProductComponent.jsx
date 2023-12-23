@@ -7,7 +7,9 @@ const fetchProductsAndCategories = async () => {
   const db = getFirestore(app);
   const prod = await getDocs(collection(db, "products"));
   const cat = await getDocs(collection(db, "categories"));
-  const productList = prod.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  const productList = prod.docs
+    .filter((doc) => doc.data().status == 'active')
+    .map((doc) => ({ id: doc.id, ...doc.data() }));
   const categoryList = cat.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   let products = [];
 
@@ -37,7 +39,6 @@ function ProductComponent() {
     fetchProductsAndCategories().then(({ category, products }) => {
       setCategories(category);
       setProduct(products.find((item) => params.id == item.id));
-      console.log(product);
     });
   }, []);
 

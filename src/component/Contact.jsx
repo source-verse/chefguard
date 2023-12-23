@@ -1,28 +1,32 @@
 import React, { useState } from "react";
 import useEmail from "../hooks/useEmail";
+import { app } from "../firebase";
+import { addDoc, getFirestore, collection } from "firebase/firestore";
 
-function Contact() {
+const Contact = () => {
   const [from_name, setFromName] = useState("");
   const [message, setMessage] = useState("");
   const [to_email, setTo_Email] = useState("");
   const [subject, setSubject] = useState("");
 
+  const db = getFirestore(app);
+
   const { sendEmail, emailSent, error } = useEmail();
 
-  const handleSendEmail = () => {
+  const handleSendEmail = async () => {
     const templateParams = {
       from_name,
       to_email,
       subject,
       message,
     };
-
     sendEmail(templateParams);
+    addDoc(collection(db, "contactUs"), templateParams);
   };
 
   return (
     <section className="text-gray-600 body-font relative">
-      <h1 className="text-3xl lg:text-5xl capitalize font-medium title-font text-center text-primary">
+      <h1 className="text-3xl lg:text-5xl capitalize font-bold title-font text-center text-primary">
         Contact Us
       </h1>
       <div className="container px-10 py-24 mx-auto flex sm:flex-nowrap sm:flex-col lg:flex-row flex-wrap">
@@ -103,6 +107,6 @@ function Contact() {
       </div>
     </section>
   );
-}
+};
 
 export default Contact;
