@@ -108,7 +108,10 @@ function Home() {
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
-        setLoading(false); // Set loading to false when data fetching is done
+        setTimeout(() => {
+          setLoading(false);
+        }, 3000);
+        // Set loading to false when data fetching is done
       }
     };
 

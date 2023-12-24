@@ -46,7 +46,9 @@ function ProductComponent() {
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
-        setLoading(false); // Set loading to false when data fetching is done
+        setTimeout(() => {
+          setLoading(false);
+        }, 3000); // Set loading to false when data fetching is done
       }
     };
 
@@ -100,7 +102,7 @@ function ProductComponent() {
           </div>
 
           <div className="lg:w-1/2 w-full lg:pl-10 lg:pb-6 mt-6 lg:mt-0">
-            <h1 className="text-primary text-3xl title-font font-medium mb-1">
+            <h1 className="text-primary text-3xl title-font font-bold mb-1">
               {product.name}
             </h1>
             <h2 className="text-sm title-font text-gray-500">
