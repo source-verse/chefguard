@@ -22,7 +22,7 @@ function Timeline() {
                   2013
                 </h2>
                 <p className="font-bold text-emerald-700">
-                  Recieved Sree Chithirathirunnal Award
+                  Sree Chithirathirunnal Award
                 </p>
                 <p className="leading-relaxed font-semibold text-gray-400 text-sm">
                   Received Sree Chithirarhirunnl Award from the then Union
@@ -36,7 +36,7 @@ function Timeline() {
                   2014
                 </h2>
                 <p className="font-bold text-emerald-700">
-                  Received Subsash Chandra Bose Award
+                  Subsash Chandra Bose Award
                 </p>
                 <p className="leading-relaxed font-semibold text-gray-400 text-sm">
                   Received Subsash Chandra Bose Award from the then Minister of
@@ -56,7 +56,7 @@ function Timeline() {
                   2014
                 </h2>
                 <p className="font-bold text-emerald-700">
-                  Received Subsash Chandra Bose Award
+                  Subsash Chandra Bose Award
                 </p>
                 <p className="leading-relaxed font-semibold text-gray-400 text-sm">
                   Received Subsash Chandra Bose Award from the then Minister of
@@ -79,7 +79,7 @@ function Timeline() {
                   2015
                 </h2>
                 <p className="font-bold text-emerald-700">
-                  Recieved Sree Chithirathirunnal Award
+                  Sree Chithirathirunnal Award
                 </p>
                 <p className="leading-relaxed font-semibold text-gray-400 text-sm">
                   Recieved Thilakan Smaraka Award from the then Minister of
@@ -93,7 +93,7 @@ function Timeline() {
                   2015-16
                 </h2>
                 <p className="font-bold text-emerald-700">
-                  Recieved Thilakan Smaraka Award
+                  Thilakan Smaraka Award
                 </p>
                 <p className="leading-relaxed font-semibold text-gray-400 text-sm">
                   Become a member among the 500 main industrialist, Survey By
@@ -113,7 +113,7 @@ function Timeline() {
                   2015-16
                 </h2>
                 <p className="font-bold text-emerald-700">
-                  Recieved Thilakan Smaraka Award
+                  Thilakan Smaraka Award
                 </p>
                 <p className="leading-relaxed font-semibold text-gray-400 text-sm">
                   Become a member among the 500 main industrialist, Survey By

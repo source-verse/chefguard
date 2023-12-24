@@ -9,8 +9,7 @@ function Header() {
   }, []);
 
   const toggleVariable = () => {
-    setIsOpenMenu(!isOpenMenu);
-    console.log(isOpenMenu);
+    if (window.innerWidth < 1024) setIsOpenMenu(!isOpenMenu);
   };
 
   return (
@@ -48,24 +47,31 @@ function Header() {
           <nav
             className={`absolute lg:static md:ml-auto top-16 right-0 bg-white lg:bg-transparent rounded shadow-md lg:shadow-none p-4 flex flex-col lg:flex-row items-center text-base gap-4 lg:gap-10 justify-center font-semibold z-50`}
           >
-            <Link className="mr-5 hover:text-gray-900 cursor-pointer" to={`/`}>
+            <Link
+              className="mr-5 hover:text-gray-900 cursor-pointer"
+              to={`/`}
+              onClick={toggleVariable}
+            >
               Home
             </Link>
             <Link
               className="mr-5 hover:text-gray-900 cursor-pointer"
               to={`/about`}
+              onClick={toggleVariable}
             >
               About
             </Link>
             <Link
               className="mr-5 hover:text-gray-900 cursor-pointer"
               to={`/services`}
+              onClick={toggleVariable}
             >
               Services
             </Link>
             <Link
               className="mr-5 hover:text-gray-900 cursor-pointer"
               to={`/product`}
+              onClick={toggleVariable}
             >
               Product
             </Link>

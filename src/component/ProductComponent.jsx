@@ -76,7 +76,7 @@ function ProductComponent() {
       <div className="container px-10 py-24 mx-auto">
         <div className="w-full lg:w-4/5 mx-auto lg:flex lg:flex-wrap">
           <div className="grid grid-cols-[80px_auto] gap-4">
-            <div className="flex flex-col gap-4 rounded-lg ">
+            <div className="flex flex-col gap-4 rounded-lg">
               {product.images &&
                 product.images.map((item, i) => (
                   <>

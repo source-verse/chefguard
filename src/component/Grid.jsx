@@ -89,10 +89,10 @@ function ProductCard({ data }) {
           />
         </Link>
         <div className="mt-8">
-          <h2 className="text-gray-900 title-font text-md font-bold lg:text-lg">
+          <h2 className="text-gray-900 title-font text-md font-bold lg:text-lg truncate">
             {data.name}
           </h2>
-          <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+          <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1 truncate">
             {data.categoryName}
           </h3>
           {data.stock ? (
