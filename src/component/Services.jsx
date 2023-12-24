@@ -7,7 +7,7 @@ function Services() {
       <div className="container px-10 mx-auto flex flex-wrap">
         <div className="flex flex-col lg:flex-row w-full items-center">
           <img
-            className="lg:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12"
+            className="lg:w-1/2 object-cover object-center rounded-lg mt-0 lg:mt-12"
             src="https://firebasestorage.googleapis.com/v0/b/chefguard-5ca00.appspot.com/o/images%2F3739244-removebg-preview.png?alt=media&token=6e954c19-8fde-414e-92ee-b92e30258c39 "
             alt="step"
           />

@@ -1,6 +1,6 @@
 function Timeline() {
   return (
-    <section className="text-gray-600 body-font pb-24">
+    <section className="text-gray-600 body-font pb-10 lg:pb-24">
       <h1 className="text-3xl lg:text-5xl font-bold title-font text-center text-primary">
         Achievements
       </h1>

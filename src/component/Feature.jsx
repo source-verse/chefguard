@@ -5,8 +5,8 @@ function Feature({ reverse, text, headline, img, textClass }) {
         {headline}
       </h1>
       <div
-        className={`container px-10 pt-16 pb-24 mx-auto flex flex-wrap justify-center ${
-          reverse && "flex-row-reverse"
+        className={`container px-10 pt-10 pb-8 lg:pb-24 mx-auto flex flex-wrap justify-center ${
+          reverse && "flex-row-reverse pt-16 pb-12"
         }`}
       >
         <div className="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">

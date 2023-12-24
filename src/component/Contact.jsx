@@ -29,7 +29,7 @@ const Contact = () => {
       <h1 className="text-3xl lg:text-5xl capitalize font-bold title-font text-center text-primary">
         Contact Us
       </h1>
-      <div className="container px-10 py-24 mx-auto flex sm:flex-nowrap sm:flex-col lg:flex-row flex-wrap">
+      <div className="container px-10 pt-16 pb-16 lg:pt-24 lg:pb-24 mx-auto flex sm:flex-nowrap sm:flex-col lg:flex-row flex-wrap">
         <div className="lg:w-1/2 md:w-1/2 rounded-lg overflow-hidden sm:mr-10 flex items-end justify-start relative">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/chefguard-5ca00.appspot.com/o/images%2Fasset.png?alt=media&token=e73e7343-77d0-4262-a1ad-0be7dd3f69c3"

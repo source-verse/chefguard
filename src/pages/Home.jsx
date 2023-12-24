@@ -166,7 +166,7 @@ function Home() {
         </div>
       </div>
       <div className="pb-24">
-        <h1 className="text-3xl lg:text-5xl capitalize font-bold title-font text-center text-primary">
+        <h1 className="text-3xl pb-6 lg:pb-10 lg:text-5xl capitalize font-bold title-font text-center text-primary">
           Products
         </h1>
         <Grid data={products} viewMore limit={6} />
@@ -194,7 +194,7 @@ function Home() {
         }
       />
       <FeatureTwo />
-      <div className="container px-5 lg:px-10 py-24 mx-auto">
+      <div className="container px-5 lg:px-10 pb-16 lg:pt-24 lg:pb-24 mx-auto">
         <div className="mt-9 lg:px-28">
           <Carousel
             swipeable={true}
