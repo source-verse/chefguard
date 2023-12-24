@@ -90,11 +90,13 @@ const fetchProductsAndCategories = async () => {
   return { products, categoryList, bannerList, testimonial };
 };
 
-function Home() {   
+function Home() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [banners, setBanners] = useState([]);
   const [testimonial, setTestimonial] = useState([]);
+
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
     fetchProductsAndCategories().then((data) => {
@@ -103,13 +105,35 @@ function Home() {
       setBanners(data.bannerList);
       setTestimonial(data.testimonial);
     });
+
+    const images = document.querySelectorAll(".image-carousel img");
+    let loadedCount = 0;
+
+    const handleImageLoad = () => {
+      loadedCount++;
+      if (loadedCount === images.length) {
+        // All images have loaded
+        setImagesLoaded(true);
+      }
+    };
+
+    images.forEach((image) => {
+      image.addEventListener("load", handleImageLoad);
+    });
+
+    return () => {
+      // Remove event listeners on component unmount
+      images.forEach((image) => {
+        image.removeEventListener("load", handleImageLoad);
+      });
+    };
   }, []);
 
   const behindTheSceneText =
     "Chefguard, founded by Mrs. Smitha in Malapuram district, Kerala, has become a leading supplier of domestic and commercial stoves in the state. Chefguard is highly regarded among gas burner, gas stove, and gas cylinder trolley dealers. The company offers online purchasing, maintenance booking, and complaint registration for customer convenience. Mrs. Smitha, the CEO, acknowledges the journey from a startup to a household name and remains committed to progress. The company empowers women and employs many homemakers who bring a unique perspective to household kitchen needs, resulting in satisfied customers. Chefguard not only serves domestic needs but also caters to commercial standards with satisfied customers in the hospitality industry.";
   const ourVisionText = `" Our largest vision is to protect every house from gas stove accidents. Even if it's anywhere around the world, we should be able to provide our services. So our group's main vision is to protect each and every life. Because Every Life Matters "`;
-  return categories && products && banners ? (
-    // return imagesLoaded ? (
+  // return categories && products && banners ? (
+    return imagesLoaded ? (
     <>
       <Hero />
       <div className="container px-10 lg:pb-24 mx-auto">
