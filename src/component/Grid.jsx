@@ -42,7 +42,7 @@ function Grid({ viewMore, data, limit = 0, filters }) {
             </div>
           )}
           <div
-            className={`grid grid-cols-2 lg:px-40 lg:grid-cols-3 gap-[10%] lg:gap-16 ${
+            className={`grid grid-cols-2 lg:px-40 lg:grid-cols-3 gap-[10vw] lg:gap-16 ${
               filters && "gap-8 lg:px-6"
             }`}
           >
@@ -64,7 +64,7 @@ function Grid({ viewMore, data, limit = 0, filters }) {
           {viewMore && (
             <Link
               to={`/product`}
-              className="text-primary font-bold absolute right-0 bottom-0 mr-4"
+              className="text-primary font-bold absolute -bottom-8 right-0 lg:bottom-0 mr-4 text-sm lg:text-md"
             >
               View More &gt;
             </Link>

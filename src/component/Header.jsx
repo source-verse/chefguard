@@ -71,7 +71,7 @@ function Header() {
             </Link>
           </nav>
         )}
-        <button className="hidden lg:inline-flex items-center text-white bg-[#125C21] border-0 py-1 px-3 focus:outline-none rounded-lg text-base mt-4 md:mt-0">
+        <button className="hidden lg:inline-flex font-semibold items-center text-white bg-[#125C21] border-0 py-1 px-3 focus:outline-none rounded-lg text-base mt-4 md:mt-0">
           Contact Us
         </button>
       </div>
