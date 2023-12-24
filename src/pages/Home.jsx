@@ -140,7 +140,7 @@ function Home() {
   ) : (
     <>
       <Hero />
-      <div className="container px-10 lg:pb-24 mx-auto">
+      <div className="container px-10 pb-10 lg:pb-24 mx-auto">
         <div className="mt-9 lg:px-28 categories_arrows">
           <Carousel
             swipeable={true}
