@@ -4,21 +4,13 @@ function Footer() {
       <div className="container lg:px-10 py-12 lg:py-24 mx-auto flex md:items-center gap-6 lg:gap-0 lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="lg:w-1/3 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="w-10 h-10 text-white p-2 bg-primary rounded-full"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
-            <span className="ml-3 text-xl">CHEFGUARD</span>
+            {/* <img
+              className="w-14 md:w-16 scale-125 mr-3"
+              src="https://firebasestorage.googleapis.com/v0/b/chefguard-5ca00.appspot.com/o/images%2Fphoto_2023-11-05_22-00-02-removebg-preview.png?alt=media&token=34926ae0-1bc0-47a5-bd2d-7c4eb314ef53"
+            /> */}
+            <span className="text-xl">CHEFGUARD</span>
           </a>
-          <p className="mt-2 w-64 text-sm text-white">/
+          <p className="mt-2 w-64 text-sm text-white">
             As we are aiming at a complete modern kitchen solution, visualising
             an accident free, safe and secure home by providing the finest and
             latest cooking tools. We are providing latest franchise
@@ -27,8 +19,8 @@ function Footer() {
         </div>
         <div className="lg:w-1/3 flex-grow flex flex-wrap -mb-10 lg:text-left text-center">
           <div className="lg:w-1/2 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3">
-              Contacts
+            <h2 className="title-font text-white tracking-widest text-sm mb-3 font-semibold">
+              Get in Touch
             </h2>
             <nav className="list-none mb-10">
               <li className="flex justify-center lg:justify-start">
@@ -85,7 +77,7 @@ function Footer() {
                 </a>
               </li>
               <li className="flex justify-center lg:justify-start">
-                <a className="text-white hover:underline cursor-pointer flex w-fit lg:gap-2 items-center">
+                <a className="text-white hover:underline cursor-pointer flex w-fit gap-2 items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     version="1.1"
@@ -110,7 +102,7 @@ function Footer() {
                       ></path>
                     </g>
                   </svg>
-                  chefgayrd@gmail.com
+                  chefguard@gmail.com
                 </a>
               </li>
               <li className="flex justify-center lg:justify-start">
@@ -133,13 +125,13 @@ function Footer() {
                       ></path>
                     </g>
                   </svg>
-                  www.chefgaurd.in
+                  www.chefguard.in
                 </a>
               </li>
             </nav>
           </div>
           <div className="lg:w-1/2 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3">
+            <h2 className="title-font font-semibold text-white tracking-widest text-sm mb-3">
               Explore
             </h2>
             <nav className="list-none mb-10">
@@ -167,7 +159,7 @@ function Footer() {
           </div>
         </div>
         <div className="lg:w-1/3 md:w-1/2 w-full px-4">
-          <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3">
+          <h2 className="title-font font-semibold text-white tracking-widest text-sm mb-3">
             Newsletter
           </h2>
           <div className="relative mb-4 flex flex-col lg:flex-row gap-4">
