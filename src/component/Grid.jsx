@@ -23,7 +23,7 @@ function Grid({ viewMore, data, limit = 0, filters }) {
           }`}
         >
           {filters && (
-            <div className="w-full lg:w-1/4 lg:block">
+            <div className="w-full lg:w-5/12 lg:block">
               <div className="border-2 p-4 rounded-lg">
                 <h2 className="text-3xl font-semibold">
                   Smart Cooking Accessories
@@ -42,7 +42,9 @@ function Grid({ viewMore, data, limit = 0, filters }) {
             </div>
           )}
           <div
-            className={`grid grid-cols-2 lg:px-40 lg:grid-cols-3 gap-4 lg:gap-16`}
+            className={`grid grid-cols-2 lg:px-40 lg:grid-cols-3 gap-[10%] lg:gap-16 ${
+              filters && "gap-8 lg:px-6"
+            }`}
           >
             {sortArray
               .map((item, i) => (
