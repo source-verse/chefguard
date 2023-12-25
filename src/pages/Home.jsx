@@ -124,7 +124,7 @@ function Home() {
   // return categories && products && banners ? (
   return loading ? (
     <>
-      <div className="grid justify-center items-center h-96">
+      <div className="grid justify-center items-center h-screen">
         <MutatingDots
           height="200"
           width="80"
@@ -149,7 +149,9 @@ function Home() {
             swipeable={true}
             draggable={true}
             // showDots={true}
-            autoPlaySpeed={5000}
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={3000}
             responsive={responsive}
             itemClass={""}
           >

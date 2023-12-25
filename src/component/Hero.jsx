@@ -50,7 +50,7 @@ function Hero() {
         showDots={true}
         // infinite={true}
         autoPlay={true}
-        autoPlaySpeed={5000}
+        autoPlaySpeed={8000}
         responsive={responsive}
         itemClass={"aspect-video md:aspect-[16/7]"}
         beforeChange={function (nextSlide, _ref2) {

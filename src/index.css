@@ -14,7 +14,7 @@ body {
 }
 
 .categories_arrows .react-multiple-carousel__arrow::before {
-    color: #000;
+    color: #777;
 }
 
 .categories_arrows .react-multiple-carousel__arrow--right {
@@ -23,4 +23,8 @@ body {
 
 .categories_arrows .react-multiple-carousel__arrow--left {
     left: calc(0px);
+}
+
+.categories_arrows .react-multiple-carousel__arrow:hover {
+    background-color: #009f2087;
 }

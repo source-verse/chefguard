@@ -39,7 +39,7 @@ function Products() {
 
   return loading ? (
     <>
-      <div className="grid justify-center items-center h-96">
+      <div className="grid justify-center items-center h-screen">
         <MutatingDots
           height="200"
           width="80"

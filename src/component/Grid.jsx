@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const options = ["Price", "Release Date", "Category", "Discount"]; // Add more options as needed
+const options = ["Price", "Discount"]; // Add more options as needed
+const filterOptions = ["Category"]; // Add more options as needed
 
 function Grid({ viewMore, data, limit = 0, filters }) {
   const [sortValue, setSortValue] = useState("Price");
+  const [filterValue, setFilterValue] = useState("Category");
   const [sortArray, setSortArray] = useState([]);
 
   useEffect(() => {
@@ -38,6 +40,12 @@ function Grid({ viewMore, data, limit = 0, filters }) {
                   setSelectedValue={setSortValue}
                   options={options} // Add more options as needed
                 />
+                <div className="my-4"></div>
+                <Filter
+                  selectedValue={filterValue}
+                  setSelectedValue={setFilterValue}
+                  options={filterOptions} // Add more options as needed
+                />
               </div>
             </div>
           )}
@@ -48,16 +56,13 @@ function Grid({ viewMore, data, limit = 0, filters }) {
           >
             {sortArray
               .map((item, i) => (
-                <>
-                  <div className="">
-                    <Link
-                      className="inline-block w-full"
-                      to={`/product/${item.id}`}
-                    >
-                      <ProductCard data={item} key={i} />
-                    </Link>
-                  </div>
-                </>
+                <Link
+                  className="inline-block w-full"
+                  to={`/product/${item.id}`}
+                  key={i}
+                >
+                  <ProductCard data={item} key={i} />
+                </Link>
               ))
               .slice(0, limit)}
           </div>
@@ -81,13 +86,13 @@ function ProductCard({ data }) {
   return (
     <>
       <div className="border-2 rounded-md p-3 lg:p-4 border-slate-200">
-        <Link className="block relative aspect-square rounded overflow-hidden">
+        <div className="block relative aspect-square rounded overflow-hidden">
           <img
             alt="ecommerce"
             className="object-cover object-center w-full h-full block"
             src={data.images[0]}
           />
-        </Link>
+        </div>
         <div className="mt-8">
           <h2 className="text-gray-900 title-font text-md font-bold lg:text-lg truncate">
             {data.name}
@@ -144,6 +149,65 @@ const Dropdown = ({ selectedValue, setSelectedValue, options }) => {
         {" "}
         <span>
           <span className="text-gray-500">Sort by: </span>
+          {selectedValue}
+        </span>
+        <svg
+          className="-mr-1 ml-2 h-5 w-5"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            fillRule="evenodd"
+            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </button>
+
+      {isOpen && (
+        <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-20">
+          <div
+            className="py-1"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="options-menu"
+          >
+            {options.map((option, index) => (
+              <button
+                key={index}
+                className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                role="menuitem"
+                onClick={() => handleSelect(option)}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const Filter = ({ selectedValue, setSelectedValue, options }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleSelect = (value) => {
+    setSelectedValue(value);
+    setIsOpen(false);
+  };
+
+  return (
+    <div className="relative inline-block text-left w-full">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200"
+      >
+        {" "}
+        <span>
+          <span className="text-gray-500">Filter by: </span>
           {selectedValue}
         </span>
         <svg

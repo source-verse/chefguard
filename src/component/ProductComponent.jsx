@@ -57,7 +57,7 @@ function ProductComponent() {
 
   return loading ? (
     <>
-      <div className="grid justify-center items-center h-96">
+      <div className="grid justify-center items-center h-screen">
         <MutatingDots
           height="200"
           width="80"
@@ -76,16 +76,17 @@ function ProductComponent() {
   ) : (
     <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-10 py-24 mx-auto">
-        <div className="w-full lg:w-4/5 mx-auto lg:flex lg:flex-wrap">
-          <div className="grid grid-cols-[80px_auto] gap-4">
-            <div className="flex flex-col gap-4 rounded-lg">
+        <div className="w-full lg:w-4/5 mx-auto lg:flex flex-wrap">
+          <div className="grid lg:grid-cols-[80px_auto] gap-4">
+            <div className="flex flex-row lg:flex-col gap-2 lg:gap-4 rounded-lg row-start-2 lg:row-start-1">
               {product.images &&
                 product.images.map((item, i) => (
                   <>
                     <img
                       alt="ecommerce"
-                      className="aspect-square object-cover object-center shadow-lg"
+                      className="aspect-square object-cover object-center shadow-lg w-1/5 lg:w-full"
                       src={item}
+                      onClick={() => setCurrentPreview(i)}
                     />
                   </>
                 ))}
