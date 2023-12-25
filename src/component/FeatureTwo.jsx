@@ -62,7 +62,7 @@ function FeatureTwo() {
                 <>
                   <div className="relative h-40">
                     <div className="absolute -z-1 bg-[#009F20] opacity-40 rounded-full h-44 w-44 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                    <div className="absolute -z-1 text-black font-bold text-center w-52 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="absolute -z-1 text-gray-600 font-bold text-center w-52 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                       {'"' + item.message + '"'}
                     </div>
                   </div>

@@ -199,7 +199,7 @@ function Home() {
         }
       />
       <FeatureTwo />
-      <div className="container px-5 lg:px-10 pb-16 lg:pt-24 lg:pb-24 mx-auto">
+      <div className="container px-5 lg:px-10 pb-16 lg:pb-24 mx-auto">
         <div className="mt-9 lg:px-28">
           <Carousel
             swipeable={true}

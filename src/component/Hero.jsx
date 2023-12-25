@@ -3,6 +3,8 @@ import "react-multi-carousel/lib/styles.css";
 import { useState, useEffect } from "react";
 import { app } from "../firebase";
 import { getDocs, getFirestore, collection } from "firebase/firestore";
+import { Link } from "react-router-dom";
+
 let selectedIndex = 0;
 
 const responsive = {
@@ -88,9 +90,12 @@ function Hero() {
             <button className="text-center mt-auto font-semibold text-white border-[#125C21] bg-[#125C21] py-2 px-3 w-28 focus:outline-none hover:bg-[#125C21] rounded-xl">
               Contact Us
             </button>
-            <button className="text-center mt-auto font-semibold text-[#125C21] border-2 border-[#125C21] bg-white py-2 px-3 w-28 focus:outline-none hover:bg-gray-500 rounded-xl">
+            <Link
+              to={`/product`}
+              className="text-center mt-auto font-semibold text-[#125C21] border-2 border-[#125C21] bg-white py-2 px-3 w-28 focus:outline-none hover:bg-gray-500 rounded-xl"
+            >
               Products
-            </button>
+            </Link>
           </div>
         </div>
       </div>
