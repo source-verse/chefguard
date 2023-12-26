@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 import { app } from "../firebase";
 import { MutatingDots } from "react-loader-spinner";
 import { getDocs, getFirestore, collection } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 const responsive = {
   desktop: {
@@ -90,7 +91,7 @@ const fetchProductsAndCategories = async () => {
   return { products, categoryList, bannerList, testimonial };
 };
 
-function Home() {
+function Home({ setter }) {
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
@@ -157,14 +158,19 @@ function Home() {
           >
             {categories.map((item, i) => (
               <>
-                <img
+                <Link
+                  to={"/product"}
                   key={i}
-                  src={item.image}
-                  className="w-full object-center object-contain h-10 lg:h-16"
-                />
-                <p className="text-center text-primary capitalize font-semibold text-sm lg:text-lg mt-2">
-                  {item.name}
-                </p>
+                  onClick={() => setter(item.id)}
+                >
+                  <img
+                    src={item.image}
+                    className="w-full object-center object-contain h-10 lg:h-16"
+                  />
+                  <p className="text-center text-primary capitalize font-semibold text-sm lg:text-lg mt-2">
+                    {item.name}
+                  </p>
+                </Link>
               </>
             ))}
           </Carousel>

@@ -1,12 +1,22 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const options = ["Price", "Discount"]; // Add more options as needed
-const filterOptions = ["Category"]; // Add more options as needed
+import { app } from "../firebase";
+import { getDocs, getFirestore, collection } from "firebase/firestore";
 
-function Grid({ viewMore, data, limit = 0, filters }) {
+const fetchCategories = async () => {
+  const db = getFirestore(app);
+  const cat = await getDocs(collection(db, "categories"));
+  const categoryList = cat.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  return { categoryList };
+};
+
+const options = ["Price", "Discount"]; // Add more options as needed
+
+function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
   const [sortValue, setSortValue] = useState("Price");
-  const [filterValue, setFilterValue] = useState("Category");
+  const [filterValue, setFilterValue] = useState("");
+  const [filterList, setFilterList] = useState([]);
   const [sortArray, setSortArray] = useState([]);
 
   useEffect(() => {
@@ -15,68 +25,91 @@ function Grid({ viewMore, data, limit = 0, filters }) {
         (a, b) => a[sortValue.toLowerCase()] - b[sortValue.toLowerCase()]
       );
     });
-  }, [sortValue, data]);
+
+    
+
+    const fetchData = async () => {
+      try {
+        const data2 = await fetchCategories();
+        setFilterList(data2.categoryList);
+        if (categoryFilter) {
+          setFilterValue(categoryFilter);
+          setSortArray(() => {
+            return [...data].filter(
+              (item) => item.categoryId === categoryFilter
+            );
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+
+  }, [sortValue, data, filterValue, categoryFilter]);
   return (
-    <>
-      <section className="text-gray-600 body-font">
-        <div
-          className={`container px-4 py-4 pb-10 lg:pb-14 mx-auto relative flex flex-col lg:flex-row gap-8 ${
-            filters && "flex-col lg:flex-row gap-8"
-          }`}
-        >
-          {filters && (
-            <div className="w-full lg:w-5/12 lg:block">
-              <div className="border-2 p-4 rounded-lg">
-                <h2 className="text-3xl font-semibold">
-                  Smart Cooking Accessories
-                </h2>
-                <p className="font-semibold mt-2">
-                  Showing 1 - {sortArray.length} out of {sortArray.length}{" "}
-                  products
-                </p>
-                <div className="mt-4"></div>
-                <Dropdown
-                  selectedValue={sortValue}
-                  setSelectedValue={setSortValue}
-                  options={options} // Add more options as needed
-                />
-                <div className="my-4"></div>
-                <Filter
-                  selectedValue={filterValue}
-                  setSelectedValue={setFilterValue}
-                  options={filterOptions} // Add more options as needed
-                />
-              </div>
-            </div>
-          )}
+    filterList && (
+      <>
+        <section className="text-gray-600 body-font">
           <div
-            className={`grid grid-cols-2 lg:px-40 lg:grid-cols-3 gap-[10vw] lg:gap-16 ${
-              filters && "gap-8 lg:px-6"
+            className={`container px-4 py-4 pb-10 lg:pb-14 mx-auto relative flex flex-col lg:flex-row gap-8 ${
+              filters && "flex-col lg:flex-row gap-8"
             }`}
-          >
-            {sortArray
-              .map((item, i) => (
-                <Link
-                  className="inline-block w-full"
-                  to={`/product/${item.id}`}
-                  key={i}
-                >
-                  <ProductCard data={item} key={i} />
-                </Link>
-              ))
-              .slice(0, limit)}
-          </div>
-          {viewMore && (
-            <Link
-              to={`/product`}
-              className="text-primary font-bold absolute -bottom-8 right-0 lg:bottom-0 mr-4 text-sm lg:text-md"
+          >.
+            {filters && (
+              <div className="w-full lg:w-5/12 lg:block">
+                <div className="border-2 p-4 rounded-lg">
+                  <h2 className="text-3xl font-semibold">
+                    Smart Cooking Accessories
+                  </h2>
+                  <p className="font-semibold mt-2">
+                    Showing 1 - {sortArray.length} out of {sortArray.length}{" "}
+                    products
+                  </p>
+                  <div className="mt-4"></div>
+                  <Dropdown
+                    selectedValue={sortValue}
+                    setSelectedValue={setSortValue}
+                    options={options} // Add more options as needed
+                  />
+                  <div className="my-4"></div>
+                  <Filter
+                    selectedValue={filterValue}
+                    setSelectedValue={setFilterValue}
+                    options={filterList.map((item) => item.name)} // Add more options as needed
+                  />
+                </div>
+              </div>
+            )}
+            <div
+              className={`grid grid-cols-2 lg:px-40 lg:grid-cols-3 gap-[10vw] lg:gap-16 ${
+                filters && "gap-8 lg:px-6"
+              }`}
             >
-              View More &gt;
-            </Link>
-          )}
-        </div>
-      </section>
-    </>
+              {sortArray
+                .map((item, i) => (
+                  <Link
+                    className="inline-block w-full"
+                    to={`/product/${item.id}`}
+                    key={i}
+                  >
+                    <ProductCard data={item} key={i} />
+                  </Link>
+                ))
+                .slice(0, limit)}
+            </div>
+            {viewMore && (
+              <Link
+                to={`/product`}
+                className="text-primary font-bold absolute -bottom-8 right-0 lg:bottom-0 mr-4 text-sm lg:text-md"
+              >
+                View More &gt;
+              </Link>
+            )}
+          </div>
+        </section>
+      </>
+    )
   );
 }
 

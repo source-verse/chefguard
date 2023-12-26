@@ -10,7 +10,7 @@ const fetchProducts = async () => {
   return products.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 };
 
-function Products() {
+function Products({ categoryFilter }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -57,7 +57,12 @@ function Products() {
     </>
   ) : (
     <div>
-      <Grid data={products} filters limit={100} />
+      <Grid
+        data={products}
+        filters
+        limit={100}
+        categoryFilter={categoryFilter}
+      />
     </div>
   );
 }
