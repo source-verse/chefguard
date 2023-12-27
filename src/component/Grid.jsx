@@ -91,7 +91,7 @@ function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
               </div>
             )}
             <div
-              className={`grid grid-cols-2 lg:px-40 lg:grid-cols-3 gap-[10vw] lg:gap-16 ${
+              className={`grid grid-cols-2 lg:px-40 lg:grid-cols-3 gap-[10vw] lg:gap-16 w-full ${
                 filters && "gap-8 lg:px-6"
               }`}
             >
