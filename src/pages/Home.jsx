@@ -173,7 +173,7 @@ function Home({ setter }) {
         </div>
       </div>
       <div className="pb-24">
-        <h1 className="text-3xl lg:pb-4 lg:pb-10 lg:text-5xl capitalize font-bold title-font text-center text-primary">
+        <h1 className="text-3xl lg:pb-10 lg:text-5xl capitalize font-bold title-font text-center text-primary">
           Products
         </h1>
         <Grid data={products} viewMore limit={6} />

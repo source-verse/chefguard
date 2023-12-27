@@ -12,7 +12,7 @@ body {
 }
 
 .categories_arrows .react-multiple-carousel__arrow::before {
-    color: #777;
+    color: #aaa;
 }
 
 .categories_arrows .react-multiple-carousel__arrow--right {

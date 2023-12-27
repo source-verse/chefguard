@@ -29,6 +29,7 @@ const responsive = {
 function Hero() {
   const [banners, setBanners] = useState([]);
   const [desc, setDesc] = useState([]);
+  const [isMobile, setIsMobile] = useState(false);
   const [selected, setSelected] = useState(0);
   const fetchBanner = async () => {
     const db = getFirestore(app);
@@ -50,7 +51,6 @@ function Hero() {
         swipeable={true}
         draggable={false}
         showDots={true}
-        // infinite={true}
         autoPlay={true}
         autoPlaySpeed={8000}
         responsive={responsive}

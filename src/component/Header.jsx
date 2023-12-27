@@ -45,31 +45,31 @@ function Header() {
 
         {isOpenMenu && (
           <nav
-            className={`absolute lg:static md:ml-auto font-roboto top-16 right-0 bg-white lg:bg-transparent rounded shadow-md lg:shadow-none p-4 flex flex-col lg:flex-row items-center text-base gap-4 lg:gap-8 justify-center font-semibold z-50`}
+            className={`absolute lg:static md:ml-auto font-roboto top-16 right-2 bg-white lg:bg-transparent shadow-md lg:shadow-none rounded lg:px-4 py-4 px-8 flex flex-col lg:flex-row items-center text-base gap-4 lg:gap-8 justify-center font-semibold z-50`}
           >
             <Link
-              className="mr-5 hover:text-gray-900 cursor-pointer"
+              className="lg:mr-5 hover:text-gray-900 cursor-pointer"
               to={`/`}
               onClick={toggleVariable}
             >
               Home
             </Link>
             <Link
-              className="mr-5 hover:text-gray-900 cursor-pointer"
+              className="lg:mr-5 hover:text-gray-900 cursor-pointer"
               to={`/about`}
               onClick={toggleVariable}
             >
               About
             </Link>
             <Link
-              className="mr-5 hover:text-gray-900 cursor-pointer"
+              className="lg:mr-5 hover:text-gray-900 cursor-pointer"
               to={`/services`}
               onClick={toggleVariable}
             >
               Services
             </Link>
             <Link
-              className="mr-5 hover:text-gray-900 cursor-pointer"
+              className="lg:mr-5 hover:text-gray-900 cursor-pointer"
               to={`/product`}
               onClick={toggleVariable}
             >
