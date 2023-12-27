@@ -15,28 +15,37 @@ const options = ["Price", "Discount"]; // Add more options as needed
 
 function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
   const [sortValue, setSortValue] = useState("Price");
-  const [filterValue, setFilterValue] = useState("");
+  const [selectedFilter, setSelectedFilter] = useState("");
   const [filterList, setFilterList] = useState([]);
   const [sortArray, setSortArray] = useState([]);
 
   useEffect(() => {
-    setSortArray(() => {
-      return [...data].sort(
-        (a, b) => a[sortValue.toLowerCase()] - b[sortValue.toLowerCase()]
-      );
-    });
-
-    
-
     const fetchData = async () => {
       try {
         const data2 = await fetchCategories();
-        setFilterList(data2.categoryList);
-        if (categoryFilter) {
-          setFilterValue(categoryFilter);
+        setFilterList(data2.categoryList.map((item) => item.name));
+
+        if (!selectedFilter && categoryFilter) {
+          setSelectedFilter(
+            data2.categoryList.find((item) => item.id == categoryFilter).name
+          );
+        }
+
+        if (selectedFilter) {
           setSortArray(() => {
-            return [...data].filter(
-              (item) => item.categoryId === categoryFilter
+            return [...data].filter((item) => {
+              return (
+                item.categoryId ===
+                data2.categoryList.find((item) => item.name == selectedFilter)
+                  .id
+              );
+            });
+          });
+        }
+        if (!selectedFilter && !categoryFilter) {
+          setSortArray(() => {
+            return [...data].sort(
+              (a, b) => a[sortValue.toLowerCase()] - b[sortValue.toLowerCase()]
             );
           });
         }
@@ -45,8 +54,7 @@ function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
       }
     };
     fetchData();
-
-  }, [sortValue, data, filterValue, categoryFilter]);
+  }, [sortValue, data, selectedFilter, categoryFilter]);
   return (
     filterList && (
       <>
@@ -55,7 +63,8 @@ function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
             className={`container px-4 py-4 pb-10 lg:pb-14 mx-auto relative flex flex-col lg:flex-row gap-8 ${
               filters && "flex-col lg:flex-row gap-8"
             }`}
-          >.
+          >
+            .
             {filters && (
               <div className="w-full lg:w-5/12 lg:block">
                 <div className="border-2 p-4 rounded-lg">
@@ -73,10 +82,10 @@ function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
                     options={options} // Add more options as needed
                   />
                   <div className="my-4"></div>
-                  <Filter
-                    selectedValue={filterValue}
-                    setSelectedValue={setFilterValue}
-                    options={filterList.map((item) => item.name)} // Add more options as needed
+                  <FilterDropdown
+                    selectedValue={selectedFilter}
+                    setSelectedValue={setSelectedFilter}
+                    options={filterList} // Add more options as needed
                   />
                 </div>
               </div>
@@ -169,7 +178,7 @@ const Dropdown = ({ selectedValue, setSelectedValue, options }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSelect = (value) => {
-    setSelectedValue(value);
+    console.log(value);
     setIsOpen(false);
   };
 
@@ -224,7 +233,7 @@ const Dropdown = ({ selectedValue, setSelectedValue, options }) => {
   );
 };
 
-const Filter = ({ selectedValue, setSelectedValue, options }) => {
+const FilterDropdown = ({ selectedValue, setSelectedValue, options }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSelect = (value) => {
@@ -240,7 +249,7 @@ const Filter = ({ selectedValue, setSelectedValue, options }) => {
       >
         {" "}
         <span>
-          <span className="text-gray-500">Filter by: </span>
+          <span className="text-gray-500">Sort by: </span>
           {selectedValue}
         </span>
         <svg
