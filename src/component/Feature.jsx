@@ -11,7 +11,9 @@ function Feature({ reverse, text, headline, img, textClass }) {
       >
         <div className="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
           <div className="flex flex-col justify-center items-center mb-10 h-full flex-wrap">
-            <p className={`${textClass} text-gray-600 max-w-xl`}>{text}</p>
+            <p className={`${textClass} text-center text-gray-600 max-w-xl`}>
+              {text}
+            </p>
           </div>
         </div>
         <div

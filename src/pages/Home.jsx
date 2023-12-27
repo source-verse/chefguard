@@ -118,7 +118,7 @@ function Home({ setter }) {
 
     fetchData();
   }, []);
- 
+
   const behindTheSceneText =
     "Chefguard, founded by Mrs. Smitha in Malapuram district, Kerala, has become a leading supplier of domestic and commercial stoves in the state. Chefguard is highly regarded among gas burner, gas stove, and gas cylinder trolley dealers. The company offers online purchasing, maintenance booking, and complaint registration for customer convenience. Mrs. Smitha, the CEO, acknowledges the journey from a startup to a household name and remains committed to progress. The company empowers women and employs many homemakers who bring a unique perspective to household kitchen needs, resulting in satisfied customers. Chefguard not only serves domestic needs but also caters to commercial standards with satisfied customers in the hospitality industry.";
   const ourVisionText = `" Our largest vision is to protect every house from gas stove accidents. Even if it's anywhere around the world, we should be able to provide our services. So our group's main vision is to protect each and every life. Because Every Life Matters "`;
@@ -158,11 +158,7 @@ function Home({ setter }) {
           >
             {categories.map((item, i) => (
               <>
-                <Link
-                  to={"/product"}
-                  key={i}
-                  onClick={() => setter(item.id)}
-                >
+                <Link to={"/product"} key={i} onClick={() => setter(item.id)}>
                   <img
                     src={item.image}
                     className="w-full object-center object-contain h-10 lg:h-16"
@@ -177,7 +173,7 @@ function Home({ setter }) {
         </div>
       </div>
       <div className="pb-24">
-        <h1 className="text-3xl pb-6 lg:pb-10 lg:text-5xl capitalize font-bold title-font text-center text-primary">
+        <h1 className="text-3xl lg:pb-4 lg:pb-10 lg:text-5xl capitalize font-bold title-font text-center text-primary">
           Products
         </h1>
         <Grid data={products} viewMore limit={6} />

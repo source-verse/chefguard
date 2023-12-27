@@ -60,8 +60,8 @@ function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
       <>
         <section className="text-gray-600 body-font">
           <div
-            className={`container px-4 py-4 pb-10 lg:pb-14 mx-auto relative flex flex-col lg:flex-row gap-8 ${
-              filters && "flex-col lg:flex-row gap-8"
+            className={`container px-4 pb-10 lg:pb-14 mx-auto relative flex flex-col lg:flex-row gap-8 ${
+              filters && "flex-col lg:flex-row gap-8 py-4"
             }`}
           >
             .
