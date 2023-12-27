@@ -249,7 +249,7 @@ const FilterDropdown = ({ selectedValue, setSelectedValue, options }) => {
       >
         {" "}
         <span>
-          <span className="text-gray-500">Sort by: </span>
+          <span className="text-gray-500">Filter by: </span>
           {selectedValue}
         </span>
         <svg

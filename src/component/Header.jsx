@@ -45,7 +45,7 @@ function Header() {
 
         {isOpenMenu && (
           <nav
-            className={`absolute lg:static md:ml-auto top-16 right-0 bg-white lg:bg-transparent rounded shadow-md lg:shadow-none p-4 flex flex-col lg:flex-row items-center text-base gap-4 lg:gap-8 justify-center font-semibold z-50`}
+            className={`absolute lg:static md:ml-auto font-roboto top-16 right-0 bg-white lg:bg-transparent rounded shadow-md lg:shadow-none p-4 flex flex-col lg:flex-row items-center text-base gap-4 lg:gap-8 justify-center font-semibold z-50`}
           >
             <Link
               className="mr-5 hover:text-gray-900 cursor-pointer"
@@ -77,7 +77,7 @@ function Header() {
             </Link>
           </nav>
         )}
-        <button className="hidden lg:inline-flex font-semibold items-center text-white bg-[#125C21] border-0 py-1 px-3 focus:outline-none rounded-lg text-base mt-4 md:mt-0">
+        <button className="hidden lg:inline-flex font-roboto font-semibold items-center text-white bg-[#125C21] border-0 py-1 px-3 focus:outline-none rounded-lg text-base mt-4 md:mt-0">
           Contact Us
         </button>
       </div>
