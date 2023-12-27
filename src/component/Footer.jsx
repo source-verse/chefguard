@@ -1,8 +1,27 @@
+import React, { useState } from "react";
+import useNewsletter from "../hooks/useNewsletter";
+import { app } from "../firebase";
+import { addDoc, getFirestore, collection } from "firebase/firestore";
+import { Link } from "react-router-dom";
 function Footer() {
+  const [email, setEmail] = useState("");
+
+  const db = getFirestore(app);
+
+  const { sendEmail, emailSent, error } = useNewsletter();
+
+  const handleSendEmail = async () => {
+    const templateParams = {
+      email,
+    };
+    sendEmail(templateParams);
+    // addDoc(collection(db, "newsLetter"), templateParams);
+  };
+
   return (
     <footer className="text-white body-font bg-primary ">
       <div className="container lg:px-10 py-12 lg:py-24 mx-auto flex md:items-center gap-6 lg:gap-0 lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-        <div className="lg:w-1/3 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
+        <div className="lg:w-3/12 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
             {/* <img
               className="w-14 md:w-16 scale-125 mr-3"
@@ -17,8 +36,8 @@ function Footer() {
             opportunities.
           </p>
         </div>
-        <div className="lg:w-1/3 flex-grow flex flex-wrap -mb-10 lg:text-left text-center">
-          <div className="lg:w-1/2 md:w-1/2 w-full px-4">
+        <div className="lg:w-5/12 flex-grow flex flex-wrap -mb-10 lg:text-left  text-center">
+          <div className="lg:w-7/12 md:w-1/2 w-full px-4">
             <h2 className="title-font text-white tracking-widest text-sm mb-3 font-semibold">
               Get in Touch
             </h2>
@@ -130,46 +149,64 @@ function Footer() {
               </li>
             </nav>
           </div>
-          <div className="lg:w-1/2 md:w-1/2 w-full px-4">
+          <div className="lg:w-5/12 md:w-1/2 w-full px-4">
             <h2 className="title-font font-semibold text-white tracking-widest text-sm mb-3">
               Explore
             </h2>
             <nav className="list-none mb-10">
               <li>
-                <a className="text-white hover:underline cursor-pointer">
+                <Link
+                  className="text-white hover:underline cursor-pointer"
+                  to={`/`}
+                >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-white hover:underline cursor-pointer">
+                <a
+                  className="text-white hover:underline cursor-pointer"
+                  href="/#about-section"
+                >
                   About Us
                 </a>
               </li>
               <li>
-                <a className="text-white hover:underline cursor-pointer">
-                  Products
-                </a>
+                <a>Products</a>
+                <Link
+                  className="text-white hover:underline cursor-pointer"
+                  to={`/product`}
+                >
+                  Product
+                </Link>
               </li>
               <li>
-                <a className="text-white hover:underline cursor-pointer">
+                <a
+                  className="text-white hover:underline cursor-pointer"
+                  href="/#contact-section"
+                >
                   Contact Us
                 </a>
               </li>
             </nav>
           </div>
         </div>
-        <div className="lg:w-1/3 md:w-1/2 w-full px-4">
+        <div className="lg:w-4/12 md:w-1/2 w-full px-4">
           <h2 className="title-font font-semibold text-white tracking-widest text-sm mb-3">
             Newsletter
           </h2>
           <div className="relative mb-4 flex flex-col lg:flex-row gap-4">
             <input
               type="text"
-              id="name"
-              name="name"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="bg-primary rounded border border-gray-300 focus:border-[#125C21] focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-0 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
-            <button className="text-primary bg-white py-2 px-3 rounded-lg">
+            <button
+              onClick={handleSendEmail}
+              className="text-primary bg-white py-2 px-3 rounded-lg"
+            >
               Subscribe
             </button>
           </div>
@@ -180,7 +217,7 @@ function Footer() {
           <p className="text-white text-sm text-center lg:text-left">
             Copyright © 2023. india. All rights reserved
           </p>
-          <span className="inline-flex mx-auto lg:ml-auto mt-0 mt-2 justify-center lg:justify-start">
+          <span className="inline-flex ml-auto mr-auto lg:ml-auto lg:mr-0 mt-2 justify-center lg:justify-start">
             <a className="text-white">
               <svg
                 fill="currentColor"

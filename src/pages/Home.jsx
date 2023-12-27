@@ -178,6 +178,7 @@ function Home({ setter }) {
         </h1>
         <Grid data={products} viewMore limit={6} />
       </div>
+      <div id="about-section"></div>
       <Feature
         reverse
         text={behindTheSceneText}
@@ -224,7 +225,9 @@ function Home({ setter }) {
           </Carousel>
         </div>
       </div>
+      <div id="contact-section">
       <Contact />
+      </div>
     </>
   );
 }

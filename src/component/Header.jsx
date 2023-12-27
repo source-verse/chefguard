@@ -49,7 +49,9 @@ function Header() {
           >
             {
               <div
-                className={`fixed top-0 bottom-0 right-0 left-0 opacity-0 lg:hidden ${isOpenMenu ?'block':'hidden'}`}
+                className={`fixed top-0 bottom-0 right-0 left-0 opacity-0 lg:hidden ${
+                  isOpenMenu ? "block" : "hidden"
+                }`}
                 onClick={() => setIsOpenMenu(false)}
               ></div>
             }
@@ -60,20 +62,20 @@ function Header() {
             >
               Home
             </Link>
-            <Link
+            <a
               className="lg:mr-5 hover:text-gray-900 cursor-pointer"
-              to={`/about`}
+              href={`/#about-section`}
               onClick={toggleVariable}
             >
               About
-            </Link>
-            <Link
+            </a>
+            <a
               className="lg:mr-5 hover:text-gray-900 cursor-pointer"
-              to={`/services`}
+              href={`/#contact-section`}
               onClick={toggleVariable}
             >
-              Services
-            </Link>
+              Contacts
+            </a>
             <Link
               className="lg:mr-5 hover:text-gray-900 cursor-pointer"
               to={`/product`}
