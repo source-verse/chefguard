@@ -6,6 +6,9 @@ export default {
       colors: {
         primary: "#125C21",
       },
+      fontFamily: {
+        roboto:['Roboto','sans-serif']
+      },
     },
   },
   // plugins: [require("tw-elements/dist/plugin.cjs")],

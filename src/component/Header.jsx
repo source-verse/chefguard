@@ -16,11 +16,11 @@ function Header() {
     <header className="text-gray-600 body-font">
       <div className="container mx-auto flex flex-wrap px-5 py-0 gap-10 md:flex-row items-center relative">
         <Link
-          className="flex title-font font-medium items-center text-gray-900 lg:mb-4 md:mb-0"
+          className="flex title-font font-medium items-center text-gray-900 md:mb-0 p-4"
           to={`/`}
         >
           <img
-            className="w-14 md:w-16 scale-125"
+            className="w-10 lg:w-12"
             src="https://firebasestorage.googleapis.com/v0/b/chefguard-5ca00.appspot.com/o/images%2Fphoto_2023-11-05_22-00-02-removebg-preview.png?alt=media&token=34926ae0-1bc0-47a5-bd2d-7c4eb314ef53"
           />
         </Link>
@@ -45,7 +45,7 @@ function Header() {
 
         {isOpenMenu && (
           <nav
-            className={`absolute lg:static md:ml-auto top-16 right-0 bg-white lg:bg-transparent rounded shadow-md lg:shadow-none p-4 flex flex-col lg:flex-row items-center text-base gap-4 lg:gap-10 justify-center font-semibold z-50`}
+            className={`absolute lg:static md:ml-auto top-16 right-0 bg-white lg:bg-transparent rounded shadow-md lg:shadow-none p-4 flex flex-col lg:flex-row items-center text-base gap-4 lg:gap-8 justify-center font-semibold z-50`}
           >
             <Link
               className="mr-5 hover:text-gray-900 cursor-pointer"
