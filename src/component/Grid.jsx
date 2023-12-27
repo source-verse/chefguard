@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import { app } from "../firebase";
 import { getDocs, getFirestore, collection } from "firebase/firestore";
 
@@ -184,6 +183,12 @@ const Dropdown = ({ selectedValue, setSelectedValue, options }) => {
 
   return (
     <div className="relative inline-block text-left w-full">
+      {isOpen && (
+        <div
+          className="fixed top-0 bottom-0 right-0 left-0 opacity-0"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200"
@@ -243,6 +248,12 @@ const FilterDropdown = ({ selectedValue, setSelectedValue, options }) => {
 
   return (
     <div className="relative inline-block text-left w-full">
+      {isOpen && (
+        <div
+          className="fixed top-0 bottom-0 right-0 left-0 opacity-0"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200"

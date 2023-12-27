@@ -47,6 +47,12 @@ function Header() {
           <nav
             className={`absolute lg:static md:ml-auto font-roboto top-16 right-2 bg-white lg:bg-transparent shadow-md lg:shadow-none rounded lg:px-4 py-4 px-8 flex flex-col lg:flex-row items-center text-base gap-4 lg:gap-8 justify-center font-semibold z-50`}
           >
+            {
+              <div
+                className={`fixed top-0 bottom-0 right-0 left-0 opacity-0 lg:hidden ${isOpenMenu ?'block':'hidden'}`}
+                onClick={() => setIsOpenMenu(false)}
+              ></div>
+            }
             <Link
               className="lg:mr-5 hover:text-gray-900 cursor-pointer"
               to={`/`}
