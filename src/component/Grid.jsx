@@ -10,10 +10,15 @@ const fetchCategories = async () => {
   return { categoryList };
 };
 
-const options = ["Price", "Discount"]; // Add more options as needed
+const options = [
+  "Price -- Low to High",
+  "Price -- High to Low",
+  "Offer -- Low to High",
+  "Offer -- High to Low",
+]; // Add more options as needed
 
 function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
-  const [sortValue, setSortValue] = useState("Price");
+  const [sortValue, setSortValue] = useState("Price -- Low to High");
   const [selectedFilter, setSelectedFilter] = useState("");
   const [filterList, setFilterList] = useState([]);
   const [sortArray, setSortArray] = useState([]);
@@ -43,9 +48,28 @@ function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
         }
         if (!selectedFilter && !categoryFilter) {
           setSortArray(() => {
-            return [...data].sort(
-              (a, b) => a[sortValue.toLowerCase()] - b[sortValue.toLowerCase()]
-            );
+            switch (sortValue) {
+              case "Price -- Low to High":
+                return [...data].sort((a, b) => {
+                  const priceA = Math.ceil(a.price - (a.price * a.offer) / 100);
+                  const priceB = Math.ceil(b.price - (b.price * b.offer) / 100);
+                  return priceA - priceB;
+                });
+              case "Price -- High to Low":
+                return [...data].sort((a, b) => {
+                  const priceA = Math.ceil(a.price - (a.price * a.offer) / 100);
+                  const priceB = Math.ceil(b.price - (b.price * b.offer) / 100);
+                  return priceB - priceA;
+                });
+              case "Offer -- Low to High":
+                return [...data].sort((a, b) => a.offer - b.offer);
+
+              case "Offer -- High to Low":
+                return [...data].sort((a, b) => b.offer - a.offer);
+
+              default:
+                break;
+            }
           });
         }
       } catch (error) {
@@ -178,6 +202,7 @@ const Dropdown = ({ selectedValue, setSelectedValue, options }) => {
 
   const handleSelect = (value) => {
     console.log(value);
+    setSelectedValue(value);
     setIsOpen(false);
   };
 
