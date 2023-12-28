@@ -46,32 +46,67 @@ function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
             });
           });
         }
-        if (!selectedFilter && !categoryFilter) {
-          setSortArray(() => {
-            switch (sortValue) {
-              case "Price -- Low to High":
-                return [...data].sort((a, b) => {
+
+        setSortArray(() => {
+          switch (sortValue) {
+            case "Price -- Low to High":
+              return [...data]
+                .filter((item) => {
+                  return selectedFilter
+                    ? item.categoryId ===
+                        data2.categoryList.find(
+                          (item) => item.name == selectedFilter
+                        ).id
+                    : true;
+                })
+                .sort((a, b) => {
                   const priceA = Math.ceil(a.price - (a.price * a.offer) / 100);
                   const priceB = Math.ceil(b.price - (b.price * b.offer) / 100);
                   return priceA - priceB;
                 });
-              case "Price -- High to Low":
-                return [...data].sort((a, b) => {
+            case "Price -- High to Low":
+              return [...data]
+                .filter((item) => {
+                  return selectedFilter
+                    ? item.categoryId ===
+                        data2.categoryList.find(
+                          (item) => item.name == selectedFilter
+                        ).id
+                    : true;
+                })
+                .sort((a, b) => {
                   const priceA = Math.ceil(a.price - (a.price * a.offer) / 100);
                   const priceB = Math.ceil(b.price - (b.price * b.offer) / 100);
                   return priceB - priceA;
                 });
-              case "Offer -- Low to High":
-                return [...data].sort((a, b) => a.offer - b.offer);
+            case "Offer -- Low to High":
+              return [...data]
+                .filter((item) => {
+                  return selectedFilter
+                    ? item.categoryId ===
+                        data2.categoryList.find(
+                          (item) => item.name == selectedFilter
+                        ).id
+                    : true;
+                })
+                .sort((a, b) => a.offer - b.offer);
 
-              case "Offer -- High to Low":
-                return [...data].sort((a, b) => b.offer - a.offer);
+            case "Offer -- High to Low":
+              return [...data]
+                .filter((item) => {
+                  return selectedFilter
+                    ? item.categoryId ===
+                        data2.categoryList.find(
+                          (item) => item.name == selectedFilter
+                        ).id
+                    : true;
+                })
+                .sort((a, b) => b.offer - a.offer);
 
-              default:
-                break;
-            }
-          });
-        }
+            default:
+              break;
+          }
+        });
       } catch (error) {
         console.error("Error fetching data:", error);
       }
