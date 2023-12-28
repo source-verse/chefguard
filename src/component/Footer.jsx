@@ -171,7 +171,6 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a>Products</a>
                 <Link
                   className="text-white hover:underline cursor-pointer"
                   to={`/product`}

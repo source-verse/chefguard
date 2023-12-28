@@ -22,7 +22,7 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 3,
+    items: 2,
     slidesToSlide: 1, // optional, default to 1.
   },
   mobile: {
@@ -53,7 +53,7 @@ function FeatureTwo() {
               showDots={true}
               autoPlay={true}
               infinite
-              autoPlaySpeed={3000}
+              autoPlaySpeed={2000}
               responsive={responsive}
               itemClass={""}
               containerClass={"py-8 gap-10"}
