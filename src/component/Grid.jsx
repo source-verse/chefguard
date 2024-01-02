@@ -122,7 +122,7 @@ function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
               filters && "flex-col lg:flex-row gap-8 py-4"
             }`}
           >
-            .
+            
             {filters && (
               <div className="w-full lg:w-5/12 lg:block">
                 <div className="border-2 p-4 rounded-lg">
