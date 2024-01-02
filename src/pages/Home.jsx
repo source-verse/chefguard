@@ -15,7 +15,7 @@ import { MutatingDots } from "react-loader-spinner";
 import { getDocs, getFirestore, collection } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
-const responsive = {
+const initialValue = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 6,
@@ -32,6 +32,7 @@ const responsive = {
     slidesToSlide: 1, // optional, default to 1.
   },
 };
+
 const responsiveBanner = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -97,6 +98,7 @@ function Home({ setter }) {
   const [products, setProducts] = useState([]);
   const [banners, setBanners] = useState([]);
   const [testimonial, setTestimonial] = useState([]);
+  const [responsive, setResponsive] = useState(initialValue);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -106,6 +108,15 @@ function Home({ setter }) {
         setProducts(data.products);
         setBanners(data.bannerList);
         setTestimonial(data.testimonial);
+
+        setResponsive(() => ({
+          ...initialValue,
+          desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: data.categoryList.length <= 6 ? data.categoryList.length : 6,
+            slidesToSlide: 1, // optional, default to 1.
+          },
+        }));
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -153,7 +164,7 @@ function Home({ setter }) {
             infinite={true}
             autoPlay={true}
             autoPlaySpeed={3000}
-            responsive={responsive}
+            responsive={{ ...responsive }}
             itemClass={""}
           >
             {categories.map((item, i) => (
@@ -226,7 +237,7 @@ function Home({ setter }) {
         </div>
       </div>
       <div id="contact-section">
-      <Contact />
+        <Contact />
       </div>
     </>
   );
