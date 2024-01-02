@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function Header() {
   const [isOpenMenu, setIsOpenMenu] = useState(true);
-
+  const location = useLocation();
   useEffect(() => {
     window.innerWidth > 1024 ? setIsOpenMenu(true) : setIsOpenMenu(false);
-  }, []);
+    window.scrollTo(0, 0);
+  }, [location]);
 
   const toggleVariable = () => {
     if (window.innerWidth < 1024) setIsOpenMenu(!isOpenMenu);
