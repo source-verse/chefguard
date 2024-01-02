@@ -9,6 +9,7 @@ import {
 import { Header, Footer } from "./component/index";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import { useState } from "react";
+import ScrollToTopOnRouteChange from "./hooks/ScrollToTopOnRouteChange";
 
 function App() {
   const [category, setCategory] = useState("");
@@ -16,10 +17,14 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <ScrollToTopOnRouteChange />
         <Header />
         <Routes>
           <Route path="/" element={<Home setter={setCategory} />} />
-          <Route path="/product" element={<Products categoryFilter={category}/>} />
+          <Route
+            path="/product"
+            element={<Products categoryFilter={category} />}
+          />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/employee/:id" element={<Employee />} />
           <Route path="*" element={<ErrorPage />} />
