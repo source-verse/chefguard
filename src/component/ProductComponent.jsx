@@ -76,7 +76,7 @@ function ProductComponent() {
   ) : (
     <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-10 py-24 mx-auto">
-        <div className="w-full lg:w-4/5 mx-auto lg:flex flex-wrap">
+        <div className="w-full lg:w-3/5 mx-auto lg:flex">
           <div className="grid lg:grid-cols-[80px_auto] gap-4">
             <div className="flex flex-row lg:flex-col gap-2 lg:gap-4 rounded-lg row-start-2 lg:row-start-1">
               {product.images &&
