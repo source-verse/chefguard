@@ -84,7 +84,7 @@ function ProductComponent() {
                   <>
                     <img
                       alt="ecommerce"
-                      className="aspect-square object-cover object-center shadow-lg w-1/5 lg:w-full"
+                      className="aspect-square object-cover object-center shadow-lg w-1/5 lg:w-full cursor-pointer"
                       src={item}
                       onClick={() => setCurrentPreview(i)}
                     />
