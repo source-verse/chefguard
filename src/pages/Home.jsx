@@ -100,11 +100,14 @@ function Home({ setter }) {
   const [testimonial, setTestimonial] = useState([]);
   const [responsive, setResponsive] = useState(initialValue);
 
+  const hash = location.hash;
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchProductsAndCategories();
-        setCategories(data.categoryList);
+        setCategories(
+          data.categoryList.sort((a, b) => a.name.localeCompare(b.name))
+        );
         setProducts(data.products);
         setBanners(data.bannerList);
         setTestimonial(data.testimonial);
@@ -167,19 +170,21 @@ function Home({ setter }) {
             responsive={{ ...responsive }}
             itemClass={""}
           >
-            {categories.map((item, i) => (
-              <>
-                <Link to={"/product"} key={i} onClick={() => setter(item.id)}>
-                  <img
-                    src={item.image}
-                    className="w-full object-center object-contain h-10 lg:h-16"
-                  />
-                  <p className="text-center text-primary capitalize font-semibold text-sm lg:text-lg mt-2">
-                    {item.name}
-                  </p>
-                </Link>
-              </>
-            ))}
+            {categories
+              .map((item, i) => (
+                <>
+                  <Link to={"/product"} key={i} onClick={() => setter(item.id)}>
+                    <img
+                      src={item.image}
+                      className="w-full object-center object-contain h-10 lg:h-16"
+                    />
+                    <p className="text-center text-primary capitalize font-semibold text-sm lg:text-lg mt-2">
+                      {item.name}
+                    </p>
+                  </Link>
+                </>
+              ))
+              .sort((a, b) => a.name - b.name)}
           </Carousel>
         </div>
       </div>
