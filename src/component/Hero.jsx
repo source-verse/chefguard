@@ -62,12 +62,13 @@ function Hero() {
         }}
       >
         {banners.map((banner) => (
-          <img
-            className="object-cover w-full h-full"
-            key={banner.id}
-            src={banner.image}
-            alt="banner"
-          />
+          <a href={banner.banner} key={banner.id}>
+            <img
+              className="object-cover w-full h-full"
+              src={banner.image}
+              alt="banner"
+            />
+          </a>
         ))}
       </Carousel>
       {/* <HeroCard data={selected}/> */}

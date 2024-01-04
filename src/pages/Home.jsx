@@ -231,12 +231,13 @@ function Home({ setter }) {
             itemClass={"aspect-video md:aspect-[16/7]"}
           >
             {banners.map((item, i) => (
-              <img
-                className="object-cover w-full h-full"
-                key={item.id}
-                src={item.image}
-                alt="banner"
-              />
+              <a key={item.id} href={item.banner}>
+                <img
+                  className="object-cover w-full h-full"
+                  src={item.image}
+                  alt="banner"
+                />
+              </a>
             ))}
           </Carousel>
         </div>
