@@ -20,30 +20,32 @@ function Footer() {
 
   return (
     <footer className="text-white body-font bg-primary ">
-      <div className="container lg:px-10 py-12 lg:py-24 mx-auto flex md:items-center gap-6 lg:gap-0 lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-        <div className="lg:w-3/12 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
-          <a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
+      <div className="container lg:px-10 py-12 lg:py-24 mx-auto flex md:items-center gap-6 lg:gap-0 lg:items-start lg:flex-row md:flex-nowrap flex-wrap flex-col">
+        <div className="lg:w-3/12 md:w-full flex-shrink-0 md:mx-0 mx-auto text-center lg:text-left md:mt-0 mt-10">
+          <a className="flex title-font font-medium items-center lg:justify-start justify-center text-white">
             {/* <img
               className="w-14 md:w-16 scale-125 mr-3"
               src="https://firebasestorage.googleapis.com/v0/b/chefguard-5ca00.appspot.com/o/images%2Fphoto_2023-11-05_22-00-02-removebg-preview.png?alt=media&token=34926ae0-1bc0-47a5-bd2d-7c4eb314ef53"
             /> */}
             <span className="text-xl">CHEFGUARD</span>
           </a>
-          <p className="mt-2 w-64 text-sm text-white">
-            As we are aiming at a complete modern kitchen solution, visualising
-            an accident free, safe and secure home by providing the finest and
-            latest cooking tools. We are providing latest franchise
-            opportunities.
-          </p>
+          <div className="flex lg:justify-start justify-center">
+            <p className="mt-2 w-80 text-sm text-white">
+              As we are aiming at a complete modern kitchen solution,
+              visualising an accident free, safe and secure home by providing
+              the finest and latest cooking tools. We are providing latest
+              franchise opportunities.
+            </p>
+          </div>
         </div>
-        <div className="lg:w-5/12 flex-grow flex flex-wrap -mb-10 lg:text-left  text-center">
-          <div className="lg:w-7/12 md:w-1/2 w-full px-4">
+        <div className="lg:w-5/12 md:w-full flex-grow flex flex-wrap -mb-10 lg:text-left text-center">
+          <div className="lg:w-7/12 w-full px-4">
             <h2 className="title-font text-white tracking-widest text-sm mb-3 font-semibold">
               Get in Touch
             </h2>
             <nav className="list-none mb-10">
               <li className="flex justify-center lg:justify-start">
-                <a className="text-white hover:underline cursor-pointer flex w-fit gap-2 items-center">
+                <span className="text-white cursor-pointer flex w-fit gap-2 items-center">
                   <svg
                     version="1.1"
                     width="16"
@@ -70,11 +72,11 @@ function Footer() {
                       ></path>
                     </g>
                   </svg>
-                  Address no.2 Malappuram
-                </a>
+                  41 street Wasl Hub Block 3, karama Dubai
+                </span>
               </li>
               <li className="flex justify-center lg:justify-start">
-                <a className="text-white hover:underline cursor-pointer flex w-fit gap-2 items-center">
+                <span className="text-white cursor-pointer flex w-fit gap-2 items-center">
                   <svg
                     version="1.1"
                     width="16"
@@ -93,10 +95,10 @@ function Footer() {
                     </g>
                   </svg>
                   +91 9876543210
-                </a>
+                </span>
               </li>
               <li className="flex justify-center lg:justify-start">
-                <a className="text-white hover:underline cursor-pointer flex w-fit gap-2 items-center">
+                <span className="text-white  cursor-pointer flex w-fit gap-2 items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     version="1.1"
@@ -122,10 +124,13 @@ function Footer() {
                     </g>
                   </svg>
                   chefguard@gmail.com
-                </a>
+                </span>
               </li>
               <li className="flex justify-center lg:justify-start">
-                <a className="text-white hover:underline cursor-pointer flex w-fit gap-2 items-center">
+                <Link
+                  to="/"
+                  className="text-white hover:underline cursor-pointer flex w-fit gap-2 items-center"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     version="1.1"
@@ -145,11 +150,11 @@ function Footer() {
                     </g>
                   </svg>
                   www.chefguard.in
-                </a>
+                </Link>
               </li>
             </nav>
           </div>
-          <div className="lg:w-5/12 md:w-1/2 w-full px-4">
+          <div className="lg:w-5/12 w-full px-4">
             <h2 className="title-font font-semibold text-white tracking-widest text-sm mb-3">
               Explore
             </h2>
@@ -189,7 +194,7 @@ function Footer() {
             </nav>
           </div>
         </div>
-        <div className="lg:w-4/12 md:w-1/2 w-full px-4">
+        <div className="lg:w-4/12 md:w-full w-full px-4">
           <h2 className="title-font font-semibold text-white tracking-widest text-sm mb-3">
             Newsletter
           </h2>
