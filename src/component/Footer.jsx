@@ -70,7 +70,7 @@ function Footer() {
                       ></path>
                     </g>
                   </svg>
-                  Address no.2 Malappuram
+                  41 street, Wasl Hub Block 3, Karama Dubai
                 </a>
               </li>
               <li className="flex justify-center lg:justify-start">
