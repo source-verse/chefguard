@@ -62,7 +62,7 @@ function Hero() {
         }}
       >
         {banners.map((banner) => (
-          <a href={banner.banner} key={banner.id}>
+          <a href={banner.url} key={banner.id}>
             <img
               className="object-cover w-full h-full"
               src={banner.image}

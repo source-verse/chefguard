@@ -231,7 +231,7 @@ function Home({ setter }) {
             itemClass={"aspect-video md:aspect-[16/7]"}
           >
             {banners.map((item, i) => (
-              <a key={item.id} href={item.banner}>
+              <a key={item.id} href={item.url}>
                 <img
                   className="object-cover w-full h-full"
                   src={item.image}
