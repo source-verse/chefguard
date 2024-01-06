@@ -201,7 +201,7 @@ function Home({ setter }) {
         textClass="lg:text-xl text-left lg:text-center"
         headline={"Behind The Brand"}
         img={
-          "https://firebasestorage.googleapis.com/v0/b/chefguard-5ca00.appspot.com/o/images%2F%5Bfpdl.in%5D_flame-from-fire-that-is-lit-up_865967-436718_large.jpg?alt=media&token=6e9b31a1-277e-47c0-bfd1-9a676676f607"
+          "https://firebasestorage.googleapis.com/v0/b/chefguard-5ca00.appspot.com/o/images%2Fgasflame.jpg?alt=media&token=5eafffa8-fee8-4c31-ab09-9161f6055390"
         }
       />
       <Timeline />
