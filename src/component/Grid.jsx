@@ -122,7 +122,6 @@ function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
               filters && "flex-col lg:flex-row gap-8 py-4"
             }`}
           >
-            
             {filters && (
               <div className="w-full lg:w-5/12 lg:block">
                 <div className="border-2 p-4 rounded-lg">
@@ -183,52 +182,63 @@ function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
 export default Grid;
 
 function ProductCard({ data }) {
+  let firstImage = "";
+  useEffect(() => {
+    firstImage =
+      data && data.images && data.images.length > 0 ? data.images[0] : null;
+    console.log(data);
+
+    return;
+  }, [data.images]);
+
   return (
-    <>
-      <div className="border-2 rounded-md p-3 lg:p-4 border-slate-200">
-        <div className="block relative aspect-square rounded overflow-hidden">
-          <img
-            alt="ecommerce"
-            className="object-cover object-center w-full h-full block"
-            src={data.images[0]}
-          />
+    data && (
+      <>
+        <div className="border-2 rounded-md p-3 lg:p-4 border-slate-200">
+          <div className="block relative aspect-square rounded overflow-hidden">
+            <img
+              alt="ecommerce"
+              className="object-cover object-center w-full h-full block"
+              src={firstImage && firstImage}
+            />
+          </div>
+          <div className="mt-8">
+            <h2 className="text-gray-900 title-font text-md font-bold lg:text-lg truncate">
+              {data.name}
+            </h2>
+            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1 truncate">
+              {data.categoryName}
+            </h3>
+            {data.stock ? (
+              <>
+                {data.offer ? (
+                  <>
+                    <span className="mt-1 text-gray-500 mr-2 lg:mr-4 line-through font-bold lg:inline-block text-sm lg:text-lg">
+                      &#8377;{Math.ceil(data.price)}
+                    </span>
+                    <span className="mt-1 text-black mr-2 lg:mr-4 font-bold text-sm lg:text-lg">
+                      &#8377;
+                      {Math.ceil(data.price - (data.price * data.offer) / 100)}
+                    </span>
+                    <span className="mt-1 text-primary mr-2 lg:mr-4 font-semibold text-sm hidden sm:inline-block lg:text-lg whitespace-nowrap ">
+                      {data.offer}% off
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span className="mt-1 text-black mr-2 lg:mr-4 font-bold text-sm lg:text-lg">
+                      &#8377;{Math.ceil(data.price)}
+                    </span>
+                  </>
+                )}
+              </>
+            ) : (
+              <p className="text-red-600 font-bold text-xs">Out Of Stock</p>
+            )}
+          </div>
         </div>
-        <div className="mt-8">
-          <h2 className="text-gray-900 title-font text-md font-bold lg:text-lg truncate">
-            {data.name}
-          </h2>
-          <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1 truncate">
-            {data.categoryName}
-          </h3>
-          {data.stock ? (
-            <>
-              {data.offer ? (
-                <>
-                  <span className="mt-1 text-gray-500 mr-2 lg:mr-4 line-through font-bold lg:inline-block text-sm lg:text-lg">
-                    &#8377;{Math.ceil(data.price)}
-                  </span>
-                  <span className="mt-1 text-black mr-2 lg:mr-4 font-bold text-sm lg:text-lg">
-                    &#8377;
-                    {Math.ceil(data.price - (data.price * data.offer) / 100)}
-                  </span>
-                  <span className="mt-1 text-primary mr-2 lg:mr-4 font-semibold text-sm hidden sm:inline-block lg:text-lg whitespace-nowrap ">
-                    {data.offer}% off
-                  </span>
-                </>
-              ) : (
-                <>
-                  <span className="mt-1 text-black mr-2 lg:mr-4 font-bold text-sm lg:text-lg">
-                    &#8377;{Math.ceil(data.price)}
-                  </span>
-                </>
-              )}
-            </>
-          ) : (
-            <p className="text-red-600 font-bold text-xs">Out Of Stock</p>
-          )}
-        </div>
-      </div>
-    </>
+      </>
+    )
   );
 }
 

@@ -94,7 +94,7 @@ function Footer() {
                       ></path>
                     </g>
                   </svg>
-                  +91 +919544665099
+                  +919544665099
                 </span>
               </li>
               <li className="flex justify-center lg:justify-start">
