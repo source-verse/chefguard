@@ -15,7 +15,8 @@
         "source": "**",
         "destination": "/index.html"
       }
-    ]
+    ],
+    "site": "landing-chefguard"
   },
   "storage": {
     "rules": "storage.rules"

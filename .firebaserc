@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "chefguard-efe35"
-  }
+  },
+  "targets": {
+    "chefguard-efe35": {
+      "hosting": {
+        "landing-chefguard": [
+          "landing-chefguard"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
