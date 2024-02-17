@@ -82,13 +82,17 @@ function Header() {
               to={`/product`}
               onClick={toggleVariable}
             >
-              Product
+              Products
             </Link>
           </nav>
         )}
-        <button className="hidden lg:inline-flex font-roboto font-semibold items-center text-white bg-[#125C21] border-0 py-1 px-3 focus:outline-none rounded-lg text-base mt-4 md:mt-0">
+        <a
+          onClick={toggleVariable}
+          href={`/#contact-section`}
+          className="hidden lg:inline-flex font-roboto font-semibold items-center text-white bg-[#125C21] border-0 py-1 px-3 focus:outline-none rounded-lg text-base mt-4 md:mt-0"
+        >
           Contact Us
-        </button>
+        </a>
       </div>
     </header>
   );

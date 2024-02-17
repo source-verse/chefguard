@@ -45,6 +45,11 @@ function Hero() {
     });
   }, []);
 
+  const [isOpenMenu, setIsOpenMenu] = useState(true);
+  const toggleVariable = () => {
+    if (window.innerWidth < 1024) setIsOpenMenu(!isOpenMenu);
+  };
+
   return (
     <div className="relative pb-4 lg:pb-16 aspect-video md:aspect-[16/7]">
       <Carousel
@@ -88,9 +93,13 @@ function Hero() {
           </p>
 
           <div className="flex gap-4 min-w-fit">
-            <button className="text-center mt-auto font-semibold text-white border-[#125C21] bg-[#125C21] py-2 px-3 w-28 focus:outline-none hover:bg-[#125C21] rounded-xl">
+            <a
+              onClick={toggleVariable}
+              href={`/#contact-section`}
+              className="text-center mt-auto font-semibold text-white border-[#125C21] bg-[#125C21] py-2 px-3 w-28 focus:outline-none hover:bg-[#125C21] rounded-xl"
+            >
               Contact Us
-            </button>
+            </a>
             <Link
               to={`/product`}
               className="text-center mt-auto font-semibold text-[#125C21] border-2 border-[#125C21] bg-white py-2 px-3 w-28 focus:outline-none hover:bg-gray-500 rounded-xl"

@@ -182,15 +182,6 @@ function Grid({ viewMore, data, limit = 0, filters, categoryFilter }) {
 export default Grid;
 
 function ProductCard({ data }) {
-  let firstImage = "";
-  useEffect(() => {
-    firstImage =
-      data && data.images && data.images.length > 0 ? data.images[0] : null;
-    console.log(data);
-
-    return;
-  }, [data.images]);
-
   return (
     data && (
       <>
@@ -199,7 +190,7 @@ function ProductCard({ data }) {
             <img
               alt="ecommerce"
               className="object-cover object-center w-full h-full block"
-              src={firstImage && firstImage}
+              src={data.images[0]}
             />
           </div>
           <div className="mt-8">

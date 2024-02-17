@@ -15,7 +15,7 @@ function Footer() {
       email,
     };
     sendEmail(templateParams);
-    // addDoc(collection(db, "newsLetter"), templateParams);
+    addDoc(collection(db, "newsLetter"), templateParams);
   };
 
   return (
@@ -180,7 +180,7 @@ function Footer() {
                   className="text-white hover:underline cursor-pointer"
                   to={`/product`}
                 >
-                  Product
+                  Products
                 </Link>
               </li>
               <li>
@@ -205,7 +205,7 @@ function Footer() {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-primary rounded border border-gray-300 focus:border-[#125C21] focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-0 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="bg-primary rounded border text-white border-gray-300 focus:border-[#125C21] focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-0 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
             <button
               onClick={handleSendEmail}

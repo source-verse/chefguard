@@ -8,9 +8,9 @@ const useNewsletter = () => {
   // Replace these with your actual EmailJS configuration
   const sendEmail = (templateParams) => {
     // Replace these with your actual EmailJS configuration
-    const EMAILJS_PUBLIC_KEY = "wcaBafP-zJUsJeOwd";
-    const EMAILJS_TEMPLATE_ID = "template_runh6o8";
-    const EMAILJS_SERVICE_ID = "service_h7l9z2n";
+    const EMAILJS_PUBLIC_KEY = "9WMvVBExISg5IPWQa";
+    const EMAILJS_TEMPLATE_ID = "template_fh7og8q";
+    const EMAILJS_SERVICE_ID = "service_dktns7b";
 
     emailjs
       .send(
