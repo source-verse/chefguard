@@ -94,7 +94,7 @@ function Footer() {
                       ></path>
                     </g>
                   </svg>
-                  +919544665099
+                  +971 58189 7455
                 </span>
               </li>
               <li className="flex justify-center lg:justify-start">
@@ -149,7 +149,7 @@ function Footer() {
                       ></path>
                     </g>
                   </svg>
-                  www.chefguard.in
+                  www.chefguardinternational.com
                 </Link>
               </li>
             </nav>
