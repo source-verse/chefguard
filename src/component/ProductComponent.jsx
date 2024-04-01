@@ -111,10 +111,10 @@ function ProductComponent() {
             </h2>
             <div className="flex">
               <span className="mt-1 text-black mr-4 font-bold">
-                &#8377;{product.price - (product.price * product.offer) / 100}
+                AED {product.price - (product.price * product.offer) / 100}
               </span>
               <span className="mt-1 text-gray-500 mr-4 line-through font-bold">
-                &#8377;{product.price}
+                AED {product.price}
               </span>
               <span className="mt-1 text-primary mr-4 font-semibold">
                 {product.offer}% off

@@ -203,22 +203,25 @@ function ProductCard({ data }) {
             {data.stock ? (
               <>
                 {data.offer ? (
-                  <>
-                    <span className="mt-1 text-gray-500 mr-2 lg:mr-4 line-through font-bold lg:inline-block text-sm lg:text-lg">
-                      &#8377;{Math.ceil(data.price)}
-                    </span>
-                    <span className="mt-1 text-black mr-2 lg:mr-4 font-bold text-sm lg:text-lg">
-                      &#8377;
+                  <div className="grid">
+                    <span className="mt-1 text-black mr-2 lg:mr-4 font-bold text-md lg:text-lg whitespace-nowrap">
+                      AED{" "}
                       {Math.ceil(data.price - (data.price * data.offer) / 100)}
                     </span>
-                    <span className="mt-1 text-primary mr-2 lg:mr-4 font-semibold text-sm hidden sm:inline-block lg:text-lg whitespace-nowrap ">
-                      {data.offer}% off
-                    </span>
-                  </>
+
+                    <div className="whitespace-nowrap">
+                      <span className="mt-1 text-gray-500 mr-1 lg:mr-2 line-through font-semibold lg:inline-block text-sm lg:text-md whitespace-nowrap">
+                        AED {Math.ceil(data.price)}
+                      </span>
+                      <span className="mt-1 text-primary lg:mr-2 font-semibold text-sm sm:inline-block lg:text-md whitespace-nowrap ">
+                        {data.offer}% off
+                      </span>
+                    </div>
+                  </div>
                 ) : (
                   <>
                     <span className="mt-1 text-black mr-2 lg:mr-4 font-bold text-sm lg:text-lg">
-                      &#8377;{Math.ceil(data.price)}
+                      AED {Math.ceil(data.price)}
                     </span>
                   </>
                 )}
